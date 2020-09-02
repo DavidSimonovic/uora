@@ -28,7 +28,9 @@ Route::get('/profil','ProfilController@index')->name('profil.index');
 
 Route::get('/create','CreateController@index')->name('create.index');
 
-Route::post('/create','CreateController@store')->name('create.store');
+Route::post('/create','CreateController@create')->name('create.create');
+
+
 
 Route::get('/question','QuestionController@index')->name('question');
 

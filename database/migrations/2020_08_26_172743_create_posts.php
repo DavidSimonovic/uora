@@ -16,12 +16,13 @@ class CreatePosts extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('author_name');
+            $table->integer('author_id');
             $table->text('text');
-            $table->string('topic');
-            $table->string('city');
-            $table->integer('view_count');
+            $table->integer('view_count')->default(0);
             $table->timestamps();
+            $table->string('state')->default('new');
+            $table->integer('city_id')->default(0);
+            $table->integer('category_id')->default(0);
         });
     }
 

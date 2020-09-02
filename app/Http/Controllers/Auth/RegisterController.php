@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use App\ArthritisType;
+use App\City;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -46,8 +47,8 @@ class RegisterController extends Controller
     protected function show(){
 
         $arthritisType = ArthritisType::all();
-
-        return view('auth.register',compact('arthritisType'));
+        $cities = City::all();
+        return view('auth.register',['arthritisType' => $arthritisType, 'cities' => $cities]);
 
     }
 
@@ -80,6 +81,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'lastname' => $data['lastname'],
+            'city_id' => $data['city'],
             'arthritis_type' => $data['arthritisType'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),

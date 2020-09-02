@@ -15,9 +15,14 @@ class CreateQuestions extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->string('question');
-            $table->string('topic');
+            $table->string('title');
+            $table->integer('author_id');
+            $table->text('text');
+            $table->integer('view_count')->default(0);
             $table->timestamps();
+            $table->string('state')->default('new');
+            $table->integer('city_id')->default(0);
+            $table->integer('category_id')->default(0);
         });
     }
 
@@ -31,3 +36,4 @@ class CreateQuestions extends Migration
         Schema::dropIfExists('questions');
     }
 }
+

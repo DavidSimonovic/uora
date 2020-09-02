@@ -11,6 +11,7 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
+                        <!--name  -->
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
@@ -24,23 +25,11 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Arthritis type') }}</label>
+                        <!-- !name  -->
 
-                            <div class="col-md-6">
+                        <!-- ADD CITY DROPDOWN LIST -->
 
-                                <select id="arthritisType" name="arthritisType" class="form-control">
-                                    <option value="">Select Type</option>
-
-                                    @foreach($arthritisType as $type)
-                                        <option value="{{ $type->name }}">{{ $type->name }}</option>
-                                    @endforeach
-                                    <!-- The artrithis type foreach -->
-
-                                </select>
-                            </div>
-                        </div>
-
+                        <!-- lastname  -->
                         <div class="form-group row">
                             <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Lastname') }}</label>
 
@@ -54,7 +43,9 @@
                                 @enderror
                             </div>
                         </div>
+                        <!-- !lastname  -->
 
+                        <!-- email -->
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
@@ -68,7 +59,46 @@
                                 @enderror
                             </div>
                         </div>
+                        <!-- !email -->
 
+                        <!-- arthritisType -->
+                        <div class="form-group row">
+                            <label for="arthritisType" class="col-md-4 col-form-label text-md-right">{{ __('Arthritis type') }}</label>
+
+                            <div class="col-md-6">
+
+                                <select id="arthritisType" name="arthritisType" class="form-control">
+                                    <option value="">Select Type</option>
+
+                                    @foreach($arthritisType as $type)
+                                        <option value="{{ $type->title }}">{{ $type->title }}</option>
+                                    @endforeach
+
+
+                                </select>
+                            </div>
+                        </div>
+                        <!-- !arthritisType -->
+                        <!-- City -->
+                        <div class="form-group row">
+                            <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('City') }}</label>
+
+                            <div class="col-md-6">
+
+                                <select id="city" name="city" class="form-control">
+
+
+                                    @foreach($cities as $city)
+                                        <option value="{{ $city->id }}">{{ $city->title }}</option>
+                                    @endforeach
+
+
+                                </select>
+                            </div>
+                        </div>
+                        <!-- !City -->
+
+                        <!--password  -->
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
@@ -82,7 +112,9 @@
                                 @enderror
                             </div>
                         </div>
+                        <!-- !password  -->
 
+                        <!-- password-confirm -->
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
@@ -90,7 +122,9 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+                        <!-- !password-confirm -->
 
+                        <!-- submit -->
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -98,6 +132,8 @@
                                 </button>
                             </div>
                         </div>
+                        <!-- !submit -->
+
                     </form>
                 </div>
             </div>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateComments extends Migration
+class CreateHelpers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,15 @@ class CreateComments extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('helpers', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->integer('author_id');
+            $table->text('text');
             $table->timestamps();
+            $table->string('state')->default('new');
+            $table->integer('city_id')->default(0);
+            $table->integer('category_id')->default(0);
         });
     }
 
@@ -26,6 +32,6 @@ class CreateComments extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('helpers');
     }
 }

@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
+use App\Question;
+use App\News;
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,13 +27,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-     // All posts orderd by date
+        $news = News::all();
+        $posts = Post::all();
+
+        $questions = Question::all();
 
 
 
-        return view('home');
+        return view('home', ['posts' => $posts, 'questions' => $questions ,'news' => $news]);
     }
-    public function show(){
+     public function show(){
 
         // Category post
 
