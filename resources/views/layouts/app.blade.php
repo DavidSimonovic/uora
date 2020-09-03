@@ -47,11 +47,13 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
+
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
+
                         @else
                             <li class="nav-item dropdown">
 
@@ -67,9 +69,18 @@
                                     <a class="dropdown-item" href="{{ route('create.index') }}">
                                         {{ __('Create') }}
                                        </a>
+
                                        <a class="dropdown-item" href="{{ route('home.index') }}">
                                         {{ __('Home') }}
                                        </a>
+
+                                       <!-- Only for helpers -->
+                                       @if(Auth::user()->user_role == 'helper')
+                                       <a class="dropdown-item" href="{{ route('admin.index') }}">
+                                        {{ __('Helper Panel') }}
+                                       </a>
+                                       @endif
+                                        <!-- !Only for helpers -->
 
                                        <div class="dropdown-divider"></div>
 

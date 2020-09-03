@@ -79,6 +79,7 @@
                             </div>
                         </div>
                         <!-- !arthritisType -->
+
                         <!-- City -->
                         <div class="form-group row">
                             <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('City') }}</label>
@@ -87,7 +88,7 @@
 
                                 <select id="city" name="city" class="form-control">
 
-
+                                    <option value="">Select City</option>
                                     @foreach($cities as $city)
                                         <option value="{{ $city->id }}">{{ $city->title }}</option>
                                     @endforeach

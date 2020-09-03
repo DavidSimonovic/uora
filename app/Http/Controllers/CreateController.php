@@ -44,10 +44,11 @@ class CreateController extends Controller
     protected function create(Request $request)
     {
         if($request['createType'] == 'post'){
-        $post = new Post();
 
+        $post = new Post();
         $post->title = $request['createTitle'];
         $post->author_id = Auth::user()->id;
+        $post->author_name = Auth::user()->name.' '.Auth::user()->lastname;
         $post->text = $request['createText'];
         $post->city_id = $request['createCity'];
         $post->category_id = $request['createCategory'];
@@ -61,6 +62,7 @@ class CreateController extends Controller
 
         $question->title = $request['createTitle'];
         $question->author_id = Auth::user()->id;
+        $question->author_name = Auth::user()->name.' '.Auth::user()->lastname;
         $question->text = $request['createText'];
         $question->city_id = $request['createCity'];
         $question->category_id = $request['createCategory'];
@@ -70,10 +72,12 @@ class CreateController extends Controller
     }
 
     if($request['createType'] == 'helper'){
+
         $helper = new Helper();
 
         $helper->title = $request['createTitle'];
         $helper->author_id = Auth::user()->id;
+        $helper->author_name = Auth::user()->name.' '.Auth::user()->lastname;
         $helper->text = $request['createText'];
         $helper->city_id = $request['createCity'];
         $helper->category_id = $request['createCategory'];
@@ -87,10 +91,12 @@ class CreateController extends Controller
 
         $news->title = $request['createTitle'];
         $news->author_id = Auth::user()->id;
+        $news->author_name = Auth::user()->name.' '.Auth::user()->lastname;
         $news->text = $request['createText'];
         $news->importance = $request['createImportance'];
         $news->city_id = $request['createCity'];
         $news->category_id = $request['createCategory'];
+
         $news->save();
 
         return redirect('/home');
@@ -98,8 +104,6 @@ class CreateController extends Controller
 
     }
 
-    public function store(){
 
-    }
 
 }

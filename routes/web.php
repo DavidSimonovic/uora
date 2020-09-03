@@ -19,21 +19,57 @@ Auth::routes();
 Route::get('/', function () {
     return view('welcome');
 });
+/* Rute for showing the ArthritisTYpe */
 
 Route::get('/register','Auth\RegisterController@show')->name('register');
 
+/* Dislpaying all posts,questions,news */
+
 Route::get('/home','HomeController@index')->name('home.index');
+
+/* Profil route will show all your posts,questions and personal info */
 
 Route::get('/profil','ProfilController@index')->name('profil.index');
 
+/* this route is to display the input fields and dropdown options */
+
 Route::get('/create','CreateController@index')->name('create.index');
+
+/* this route is for saving the post */
 
 Route::post('/create','CreateController@create')->name('create.create');
 
+/* showinf the full post with comments */
 
+Route::get('/fullpost/{id}','PostController@show');
+
+/* showing only questions */
 
 Route::get('/question','QuestionController@index')->name('question');
 
-Route::get('/info','InfoController@index')->name('info');
+/* showing only posts */
+
+Route::get('/posts','PostController@index')->name('posts');
+
+/* showing only news */
 
 Route::get('/news','NewsController@index')->name('news');
+
+/* adming/helper home panel */
+
+Route::get('/admin','AdminController@index')->name('admin.index');
+
+/* adming/helper  questions panel */
+
+Route::get('/admin/questions','AdminQuestionController@index')->name('admin.question');
+
+/* adming/helper  user panel */
+
+Route::get('/admin/user','AdminUserController@index')->name('admin.user');
+
+/* adming/helper reported panel */
+
+Route::get('/admin/reported','AdminReportController@index')->name('admin.reported');
+
+
+

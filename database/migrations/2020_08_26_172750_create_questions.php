@@ -17,6 +17,7 @@ class CreateQuestions extends Migration
             $table->id();
             $table->string('title');
             $table->integer('author_id');
+            $table->string('author_name');
             $table->text('text');
             $table->integer('view_count')->default(0);
             $table->timestamps();

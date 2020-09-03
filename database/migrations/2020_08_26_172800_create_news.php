@@ -16,6 +16,7 @@ class CreateNews extends Migration
         Schema::create('news', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('author_name');
             $table->integer('author_id');
             $table->text('text');
             $table->string('importance')->default('normal');
