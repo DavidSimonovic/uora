@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\User;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -20,7 +21,11 @@ class AdminController extends Controller
 
     if(Auth::user()->user_role == 'helper'){
 
+
+
+
         return view('admin.home');
+
     }
     else{
 

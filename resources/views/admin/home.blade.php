@@ -20,11 +20,11 @@
 <!-- new questions-->
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12 col-12">
+        <div class="col-md-3 col-12">
             <div  class="card text-center">
             <div class="card-header">
                 <a href="{{ route('admin.question') }}">
-                <h1> New questions</h1>
+                <h4> New questions</h4>
                 </a>
             </div>
 
@@ -35,16 +35,11 @@
 
             </div>
         </div>
-    </div>
-<!--!new questions -->
-
-<!--new users -->
-    <div class="row justify-content-center">
-        <div class="col-md-12 col-12">
+        <div class="col-md-3 col-12">
 
             <div  class="card text-center">
 
-                <div class="card-header"><a href="#"><h1>New users</h1></a></div>
+                <div class="card-header"><a href="#"><h4>New users</h4></a></div>
 
                 <div class="card-body">
 
@@ -53,57 +48,115 @@
 
             </div>
          </div>
-    </div>
-<!--!new users -->
+         <div class="col-md-3 col-12">
 
-<!--All users -->
-    <div class="row justify-content-center">
-        <div class="col-md-12 col-12">
             <div  class="card text-center">
-                <div class="card-header"><a href="#"><h1>All users</h1></a></div>
 
-                    <div class="card-body">
+                <div class="card-header"><a href="#"><h4>New Posts</h4></a></div>
 
-                        <h3>All users number</h3>
-                    </div>
+                <div class="card-body">
 
+                    <h3>broj novih objava</h3>
                 </div>
+
+            </div>
+         </div>
+         <div class="col-md-3 col-12">
+
+            <div  class="card text-center">
+
+                <div class="card-header"><a href="#"><h4>New News</h4></a></div>
+
+                <div class="card-body">
+
+                    <h3>broj novih obavestenja</h3>
+                </div>
+
+            </div>
+         </div>
+    </div>
+<!--!new questions -->
+
+
+
+<div class="row justify-content-center">
+    <div class="col-md-3 col-12">
+        <div  class="card text-center">
+        <div class="card-header">
+            <a href="{{ route('admin.question') }}">
+            <h4>All questions</h4>
+            </a>
+        </div>
+
+            <div class="card-body">
+
+                <h3>All questions</h3>
+            </div>
+
         </div>
     </div>
-<!-- !All users-->
+    <div class="col-md-3 col-12">
 
-<!-- All posts-->
-        <div class="row justify-content-center">
-            <div class="col-md-12 col-12">
-                <div  class="card text-center">
-                    <div class="card-header"><a href="#"><h1>All posts</h1></a></div>
+        <div  class="card text-center">
 
-                        <div class="card-body">
+            <div class="card-header"><a href="#"><h4>All users</h4></a></div>
 
-                            <h3>All posts number</h3>
-                        </div>
+            <div class="card-body">
 
-                    </div>
+                <h3>All users</h3>
             </div>
+
+        </div>
+     </div>
+     <div class="col-md-3 col-12">
+
+        <div  class="card text-center">
+
+            <div class="card-header"><a href="#"><h4>AllPosts</h4></a></div>
+
+            <div class="card-body">
+
+                <h3>All posts</h3>
             </div>
-<!--!All posts -->
 
-<!--New reports-->
-            <div class="row justify-content-center">
-                <div class="col-md-12 col-12">
-                    <div  id="report" class="card text-center">
-                        <div class="card-header"><a href="#"><h1>New Reports</h1></a></div>
+        </div>
+     </div>
 
-                            <div class="card-body">
+     <div class="col-md-3 col-12">
 
-                                <h3>New Reports</h3>
-                            </div>
+        <div  class="card text-center">
 
-                        </div>
-                </div>
-                </div>
+            <div class="card-header"><a href="#"><h4>All News</h4></a></div>
 
-<!--!New reports -->
+            <div class="card-body">
+
+                <h3>All news</h3>
+            </div>
+
+        </div>
+     </div>
+</div>
+
+
+<div class="row justify-content-center">
+<div class="col-md-12 col-12">
+
+    <div id="report" class="card text-center">
+
+        <div class="card-header"><a href="#"><h4 >All Reports</h4></a></div>
+
+        <div class="card-body">
+
+            <h3>All Reports</h3>
+        </div>
+
+    </div>
+ </div>
+</div>
+
+
+
+
 
 </div>
 @endsection
