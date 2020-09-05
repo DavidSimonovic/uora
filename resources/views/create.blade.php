@@ -19,6 +19,7 @@
             <div class="form-group">
                 <div class="dropdown show">
                     <label for="createType">Type</label>
+
                     <select id="createType" name="createType" class="form-control">
 
 
@@ -39,6 +40,7 @@
                 </div>
             </div>
 
+
             @if(Auth::user()->user_role == 'helper')
             <div class="form-group">
                 <div class="dropdown show">
@@ -52,8 +54,6 @@
                   </div>
               </div>
 
-
-
             @endif
 
             <!-- Choose category input field dropdown -->
@@ -62,8 +62,9 @@
                 <div class="dropdown show">
                     <label for="createCategory">Category</label>
                     <select id="createCategory" name="createCategory" class="form-control">
+
                         @foreach ($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->title }}</option>
+                            <option value="{{ $category->id }}">{{ $category->title }}</option>
                         @endforeach
 
                     </select>
@@ -75,15 +76,10 @@
                 <div class="dropdown show">
                     <label for="createCity">City</label>
                     <select id="createCity" name="createCity" class="form-control">
+
                         @foreach ($cities as $city)
                             <option value="{{$city->id}}">{{$city->title }}</option>
                         @endforeach
-
-
-
-
-
-
 
                     </select>
                   </div>

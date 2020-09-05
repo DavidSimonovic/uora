@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -43,10 +44,14 @@ Route::post('/create','CreateController@create')->name('create.create');
 
 Route::get('/fullpost/{id}','PostController@show');
 
+
+Route::get('/fullquestion/{id}','QuestionController@show');
+
 /* showing only questions */
 
 Route::get('/question','QuestionController@index')->name('question');
 
+Route::post('/removequestion/{id}/','QuestionController@destroy');
 /* showing only posts */
 
 Route::get('/posts','PostController@index')->name('posts');
@@ -54,6 +59,28 @@ Route::get('/posts','PostController@index')->name('posts');
 /* showing only news */
 
 Route::get('/news','NewsController@index')->name('news');
+
+Route::post('/removenews/{id}/','NewsController@destroy');
+
+Route::post('/removeanswer/{id}/{ansid}','AnswerController@destroy');
+
+
+Route::post('/removepostcomment/{id}/{postcomid}','PostCommentController@destroy');
+
+Route::post('/removepost/{id}/','PostController@destroy');
+
+
+Route::post('/fullpost/{id}','PostCommentController@store');
+
+
+Route::get('/fullnews/{id}','NewsController@show');
+
+
+Route::post('/fullnews/{id}','NewsCommentController@store');
+
+Route::post('/removenewscomment/{id}/{newscomid}','NewsCommentController@destroy');
+
+Route::post('/fullquestion/{id}','AnswerController@store');
 
 /* adming/helper home panel */
 

@@ -4,8 +4,9 @@
 
 <div class="container">
     <div class="row justify-content-center">
+        helper  questions
     </div>
-        <!-- !Questions -->
+
 
 </div>
 @endsection

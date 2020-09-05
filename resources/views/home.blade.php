@@ -23,6 +23,7 @@
         text-decoration: none !important;
     }
     </style>
+
 <div class="container">
     <div class="row justify-content-center">
        @foreach ($posts as $post)
@@ -30,7 +31,7 @@
 
         <div class="col-md-12 col-8">
             <div id="posts" class="card text-center">
-            <div class="card-header"><a href=""><h3>{{ $post->title }}</h3></a></div>
+            <div class="card-header"><a href="/fullpost/{{$post->id}}"><h3>{{ $post->title }}</h3></a></div>
 
                 <div class="card-body">
 
@@ -49,7 +50,8 @@
         @foreach ($questions as $question)
         <div class="col-md-12 col-8">
             <div id='question' class="card text-center">
-            <div class="card-header"><a href=""><h3>{{ $question->title }}</h3></a></div>
+
+            <div class="card-header"><a href="/fullquestion/{{$question->id}}"><h3>{{ $question->title }}</h3></a></div>
 
                 <div class="card-body">
 
@@ -71,7 +73,7 @@
 
         <div class="col-md-12 col-8">
             <div id="important" class="card text-center">
-            <div class="card-header"><a href=""><h3>{{ $new->title }}</h3></a></div>
+            <div class="card-header"><a href="/fullnews/{{$new->id}}"><h3>{{ $new->title }}</h3></a></div>
 
                 <div class="card-body">
 

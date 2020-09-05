@@ -4,8 +4,9 @@
 
 <div class="container">
     <div class="row justify-content-center">
+       new users
     </div>
-        <!-- !Questions -->
+
 
 </div>
 @endsection

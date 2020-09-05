@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<!--style-->
 <style>
     .card{
         margin-bottom: 1vh;
@@ -14,6 +15,9 @@
         text-decoration: none !important;
     }
 </style>
+<!--!style -->
+
+<!-- new questions-->
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12 col-12">
@@ -32,7 +36,9 @@
             </div>
         </div>
     </div>
+<!--!new questions -->
 
+<!--new users -->
     <div class="row justify-content-center">
         <div class="col-md-12 col-12">
 
@@ -48,7 +54,9 @@
             </div>
          </div>
     </div>
+<!--!new users -->
 
+<!--All users -->
     <div class="row justify-content-center">
         <div class="col-md-12 col-12">
             <div  class="card text-center">
@@ -61,7 +69,10 @@
 
                 </div>
         </div>
-        </div>
+    </div>
+<!-- !All users-->
+
+<!-- All posts-->
         <div class="row justify-content-center">
             <div class="col-md-12 col-12">
                 <div  class="card text-center">
@@ -75,6 +86,9 @@
                     </div>
             </div>
             </div>
+<!--!All posts -->
+
+<!--New reports-->
             <div class="row justify-content-center">
                 <div class="col-md-12 col-12">
                     <div  id="report" class="card text-center">
@@ -89,7 +103,7 @@
                 </div>
                 </div>
 
-
+<!--!New reports -->
 
 </div>
 @endsection

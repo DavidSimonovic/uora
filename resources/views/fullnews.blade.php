@@ -10,30 +10,32 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        @foreach ($posts as $post)
+        @foreach ($news as $new)
         <div class="col-md-12 col-8">
             <div id='post' class="card text-center">
-            <div class="card-header"><div class="float-left">
-                <h3>{{ $post->title }}</h3>
-            </div>
-            <div class="float-right">
-                @if(Auth::user()->user_role == "helper" or Auth::user()->id === $post->author_id)
-                <form method="POST" action="/removepost/{{ $post->id }}">
+                <div class="card-header"><div class="float-left">
+                    <h3>{{ $new->title }}</h3>
+                </div>
 
-                        @csrf
-                        <button type="submit" class="btn btn-danger float-right">Remove</button>
-                    </form>
-                    @endif
-            </div>
+                <div class="float-right">
 
-            </div>
+                    @if(Auth::user()->user_role == "helper" or Auth::user()->id === $new->author_id)
+                            <form method="POST" action="/removenews/{{ $new->id }}">
+
+                            @csrf
+                            <button type="submit" class="btn btn-danger float-right">Remove</button>
+                            </form>
+                        @endif
+                </div>
+
+                </div>
 
                 <div class="card-body">
 
-                    {{ $post->text }}
+                    {{ $new->text }}
                 </div>
                 <div class="card-footer">
-                    <p class="float-left">{{ $post->author_name }}</p><p class="float-right">{{ $post->view_count }}</p>
+                    <p class="float-left">{{ $new->author_name }}</p><p class="float-right">{{ $new->view_count }}</p>
                 </div>
             </div>
         </div>
@@ -44,7 +46,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12 col-8">
         <!-- !posts -->
-        <form method="POST" action="/fullpost/{{ $post->id }}">
+        <form method="POST" action="/fullnews/{{ $new->id }}">
 
             @csrf
 
@@ -55,12 +57,10 @@
             <div class="form-group ">
                 <div id='post' class="card">
                     <div class="card-header text-center">
-
-
-              <label for="createComment"><h2 >Comment</h2></label>
+                        <label for="createcomment"><h2 >comment</h2></label>
                     </div>
               <div class="card-body">
-              <textarea class="form-control" id="createComment" name="createComment" rows="3"></textarea>
+                 <textarea class="form-control" id="createcomment" name="createcomment" rows="3"></textarea>
                     </div>
                     <div class="card-footer">
                         <!-- Submit button  -->
@@ -85,7 +85,7 @@
 
 
 <div class="container">
-        <!-- Comment section -->
+        <!-- comment section -->
             <div class="row justify-content-center">
                 @foreach ($comments as $comment)
                 <div class="col-md-12 col-8">
@@ -102,11 +102,13 @@
                         <div class="card-footer">
 
                             @if(Auth::user()->user_role == "helper" or Auth::user()->id === $comment->author_id)
-                        <form method="POST" action="/removepostcomment/{{ $comment->post_id }}/{{ $comment->id }}">
+
+                        <form method="POST" action="/removenewscomment/{{ $comment->news_id }}/{{ $comment->id }}">
 
                                 @csrf
                                 <button type="submit" class="btn btn-primary float-right">Remove</button>
                             </form>
+
                             @endif
                         </div>
                     </div>
@@ -118,7 +120,7 @@
         </div>
 
 
-            <!-- !Comment section -->
+            <!-- !comment section -->
 
 
 @endsection

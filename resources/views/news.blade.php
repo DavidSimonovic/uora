@@ -12,12 +12,15 @@
 <div class="container">
     <div class="row justify-content-center">
         <!-- Questions -->
+
         @foreach ($news as $new)
+
+
         @if( $new->importance == 'important')
 
         <div class="col-md-12 col-8">
             <div id="important" class="card text-center">
-            <div class="card-header"><h3>{{ $new->title }}</h3></div>
+            <div class="card-header"><a href="/fullnews/{{$new->id}}"><h3>{{ $new->title }}</h3></a></div>
 
                 <div class="card-body">
 
@@ -29,13 +32,14 @@
             </div>
         </div>
         @endif
+
         </div>
 
         <div  class="row justify-content-center">
             @if( $new->importance == 'normal')
         <div class="col-md-12 col-8">
             <div id="news" class="card text-center">
-            <div class="card-header"><h3>{{ $new->title }}</h3></div>
+            <div class="card-header"><a href="/fullnews/{{$new->id}}"><h3>{{ $new->title }}</h3></a></div>
 
                 <div class="card-body">
 
