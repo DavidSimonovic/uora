@@ -17,6 +17,7 @@ class CreateNewsViews extends Migration
             $table->id();
             $table->integer('news_id');
             $table->string('user');
+            $table->string('state')->default('new');
             $table->timestamps();
         });
     }

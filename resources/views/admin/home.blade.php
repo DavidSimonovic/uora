@@ -30,7 +30,7 @@
 
                 <div class="card-body">
 
-                    <h3>Broj novih pitanja</h3>
+                    <h3>{{ $newQuestions }}</h3>
                 </div>
 
             </div>
@@ -43,7 +43,7 @@
 
                 <div class="card-body">
 
-                    <h3>broj novih korisnika</h3>
+                <h3>{{ $newUsers }}</h3>
                 </div>
 
             </div>
@@ -56,7 +56,10 @@
 
                 <div class="card-body">
 
-                    <h3>broj novih objava</h3>
+
+
+                <h3>{{ $newPosts }}</h3>
+
                 </div>
 
             </div>
@@ -69,7 +72,8 @@
 
                 <div class="card-body">
 
-                    <h3>broj novih obavestenja</h3>
+                    <h3>{{ $newNews }}</h3>
+
                 </div>
 
             </div>
@@ -90,7 +94,7 @@
 
             <div class="card-body">
 
-                <h3>All questions</h3>
+                <h3>{{ $allNews }}</h3>
             </div>
 
         </div>
@@ -103,7 +107,7 @@
 
             <div class="card-body">
 
-                <h3>All users</h3>
+                <h3>{{ $allUsers }}</h3>
             </div>
 
         </div>
@@ -116,7 +120,7 @@
 
             <div class="card-body">
 
-                <h3>All posts</h3>
+                <h3>{{ $allPosts }}</h3>
             </div>
 
         </div>
@@ -130,7 +134,7 @@
 
             <div class="card-body">
 
-                <h3>All news</h3>
+                <h3>{{ $allNews}}</h3>
             </div>
 
         </div>
@@ -153,9 +157,6 @@
     </div>
  </div>
 </div>
-
-
-
 
 
 </div>
