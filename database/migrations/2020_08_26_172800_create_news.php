@@ -21,6 +21,7 @@ class CreateNews extends Migration
             $table->text('text');
             $table->string('importance')->default('normal');
             $table->integer('view_count')->default(0);
+            $table->string('state')->default('new');
             $table->timestamps();
             $table->integer('city_id')->default(0);
             $table->integer('category_id')->default(0);

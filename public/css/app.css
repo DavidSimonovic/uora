@@ -7,10 +7,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
-/* ADDED */
-
-/* !ADDED */
-
 :root {
   --blue: #3490dc;
   --indigo: #6574cd;
@@ -97,7 +93,6 @@ h5,
 h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-
 }
 
 p {
@@ -176,13 +171,13 @@ sup {
 
 a {
   color: #3490dc;
-  text-decoration: none !important;
+  text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
   color: #1d68a7;
-  text-decoration: none !important;
+  text-decoration: underline;
 }
 
 a:not([href]):not([class]) {
@@ -4950,7 +4945,6 @@ input[type=button].btn-block {
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
-
 }
 
 .card > hr {

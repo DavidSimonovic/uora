@@ -40,16 +40,19 @@ Route::get('/create','CreateController@index')->name('create.index');
 
 Route::post('/create','CreateController@create')->name('create.create');
 
-/* showinf the full post with comments */
+/* showing the full post with comments */
 
 Route::get('/fullpost/{id}','PostController@show');
 
+/* showing full questioon with comment */
 
 Route::get('/fullquestion/{id}','QuestionController@show');
 
 /* showing only questions */
 
 Route::get('/question','QuestionController@index')->name('question');
+
+/* removing question */
 
 Route::post('/removequestion/{id}/','QuestionController@destroy');
 /* showing only posts */
@@ -60,25 +63,41 @@ Route::get('/posts','PostController@index')->name('posts');
 
 Route::get('/news','NewsController@index')->name('news');
 
+/* remove news/ only heper can remove new */
+
 Route::post('/removenews/{id}/','NewsController@destroy');
 
+/* remove answer from question */
+
 Route::post('/removeanswer/{id}/{ansid}','AnswerController@destroy');
+
+/* removing the comment on a post */
 
 
 Route::post('/removepostcomment/{id}/{postcomid}','PostCommentController@destroy');
 
+/* removing the post compleatly */
+
+
 Route::post('/removepost/{id}/','PostController@destroy');
 
+/* saving the comment on a post  */
 
 Route::post('/fullpost/{id}','PostCommentController@store');
 
+/* full news page */
 
 Route::get('/fullnews/{id}','NewsController@show');
 
+/* saving the comment on news */
 
 Route::post('/fullnews/{id}','NewsCommentController@store');
 
+/* removing news comment */
+
 Route::post('/removenewscomment/{id}/{newscomid}','NewsCommentController@destroy');
+
+/* saving post question comment */
 
 Route::post('/fullquestion/{id}','AnswerController@store');
 
@@ -99,4 +118,14 @@ Route::get('/admin/user','AdminUserController@index')->name('admin.user');
 Route::get('/admin/reported','AdminReportController@index')->name('admin.reported');
 
 
+Route::get('/admin/new/news', 'AdminNewNewsController@index')->name('admin.newnews');
 
+
+Route::get('/admin/new/posts', 'AdminNewPostController@index')->name('admin.newposts');
+
+
+Route::get('/admin/new/users', 'AdminNewUserController@index')->name('admin.newuser');
+
+Route::post('/removeuser/{id}', "AdminNewUserController@destroy");
+
+Route::get('profil/{id}','ProfilController@index');

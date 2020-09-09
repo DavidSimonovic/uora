@@ -39,7 +39,7 @@
 
             <div  class="card text-center">
 
-                <div class="card-header"><a href="#"><h4>New users</h4></a></div>
+                <div class="card-header"><a href="{{ route('admin.newuser')}}"><h4>New users</h4></a></div>
 
                 <div class="card-body">
 
@@ -52,7 +52,7 @@
 
             <div  class="card text-center">
 
-                <div class="card-header"><a href="#"><h4>New Posts</h4></a></div>
+                <div class="card-header"><a href="{{ route('admin.newposts')}}"><h4>New Posts</h4></a></div>
 
                 <div class="card-body">
 
@@ -68,7 +68,7 @@
 
             <div  class="card text-center">
 
-                <div class="card-header"><a href="#"><h4>New News</h4></a></div>
+            <div class="card-header"><a href="{{ route('admin.newnews')}}"><h4>New News</h4></a></div>
 
                 <div class="card-body">
 
