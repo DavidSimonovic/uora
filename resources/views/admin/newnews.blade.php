@@ -22,7 +22,7 @@
                 <a href="/fullnews/{{$new->id}}"><h3>{{ $new->title }}</h3></a>
                 </div>
                 <div class="card-footer">
-                    @endforeach
+
                     <div class="float-right">
                         @if(Auth::user()->user_role == "helper")
                         <form method="POST" action="/removenews/{{ $new->id }}">
@@ -34,7 +34,7 @@
                     </div>
                     <div class="float-left">
                         @if(Auth::user()->user_role == "helper")
-                        <form method="POST" action="/aprove/{{ $new->id }}">
+                        <form method="POST" action="/aprove/newnews/{{ $new->id }}">
 
                                 @csrf
                                 <button type="submit" class="btn btn-primary float-right">Approve</button>
@@ -45,6 +45,7 @@
 
             </div>
         </div>
+        @endforeach
         <!-- !Questions -->
 
 </div>

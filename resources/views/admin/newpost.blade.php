@@ -33,7 +33,7 @@
                     </div>
                     <div class="float-left">
                         @if(Auth::user()->user_role == "helper")
-                        <form method="POST" action="/aprove/{{ $post->id }}">
+                        <form method="POST" action="/aprove/newpost{{ $post->id }}">
 
                                 @csrf
                                 <button type="submit" class="btn btn-primary float-right">Approve</button>

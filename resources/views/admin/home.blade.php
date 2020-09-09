@@ -23,7 +23,7 @@
         <div class="col-md-3 col-12">
             <div  class="card text-center">
             <div class="card-header">
-                <a href="{{ route('admin.question') }}">
+                <a href="{{ route('admin.newquestions') }}">
                 <h4> New questions</h4>
                 </a>
             </div>
@@ -94,7 +94,7 @@
 
             <div class="card-body">
 
-                <h3>{{ $allNews }}</h3>
+                <h3>{{ $allQuestions }}</h3>
             </div>
 
         </div>
@@ -103,7 +103,7 @@
 
         <div  class="card text-center">
 
-            <div class="card-header"><a href="#"><h4>All users</h4></a></div>
+        <div class="card-header"><a href="{{ route('admin.user')}}"><h4>All users</h4></a></div>
 
             <div class="card-body">
 
@@ -116,7 +116,7 @@
 
         <div  class="card text-center">
 
-            <div class="card-header"><a href="#"><h4>AllPosts</h4></a></div>
+        <div class="card-header"><a href="{{ route('admin.posts')}}"><h4>AllPosts</h4></a></div>
 
             <div class="card-body">
 
@@ -130,7 +130,7 @@
 
         <div  class="card text-center">
 
-            <div class="card-header"><a href="#"><h4>All News</h4></a></div>
+        <div class="card-header"><a href="{{ route('admin.news')}}"><h4>All News</h4></a></div>
 
             <div class="card-body">
 

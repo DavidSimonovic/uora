@@ -113,6 +113,12 @@ Route::get('/admin/questions','AdminQuestionController@index')->name('admin.ques
 
 Route::get('/admin/user','AdminUserController@index')->name('admin.user');
 
+
+Route::get('/admin/posts','AdminPostController@index')->name('admin.posts');
+
+
+Route::get('/admin/news','AdminNewsController@index')->name('admin.news');
+
 /* adming/helper reported panel */
 
 Route::get('/admin/reported','AdminReportController@index')->name('admin.reported');
@@ -123,9 +129,20 @@ Route::get('/admin/new/news', 'AdminNewNewsController@index')->name('admin.newne
 
 Route::get('/admin/new/posts', 'AdminNewPostController@index')->name('admin.newposts');
 
+Route::get('admin/new/questions', 'AdminNewQuestionController@index')->name('admin.newquestions');
+
 
 Route::get('/admin/new/users', 'AdminNewUserController@index')->name('admin.newuser');
 
 Route::post('/removeuser/{id}', "AdminNewUserController@destroy");
 
 Route::get('profil/{id}','ProfilController@index');
+
+
+Route::post('/aprove/newuser/{id}','AdminNewUserController@update');
+
+Route::post('/aprove/newquestion/{id}','AdminNewQuestionController@update');
+
+Route::post('/aprove/newpost/{id}','AdminNewPostController@update');
+
+Route::post('/aprove/newnews/{id}','AdminNewNewsController@update');

@@ -14,7 +14,7 @@
     <div class="row justify-content-center">
         <!-- Questions -->
         <div class="col-md-12 col-12">
-            @foreach ($questions as $question)
+            @foreach ($newquestions as $question)
             <div class="card">
                 <div class="card-header text-center">
                 <a href="/fullquestion/{{$question->id}}"><h3>{{ $question->title }}</h3></a>
@@ -33,7 +33,7 @@
                     </div>
                     <div class="float-left">
                         @if(Auth::user()->user_role == "helper")
-                        <form method="POST" action="/aprove/{{ $question->id }}">
+                        <form method="POST" action="/aprove/newquestion/{{ $question->id }}">
 
                                 @csrf
                                 <button type="submit" class="btn btn-primary float-right">Approve</button>

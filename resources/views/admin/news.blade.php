@@ -5,7 +5,9 @@
     .card{
         margin-bottom: 2vh;
     }
-
+    #important{
+        border: 2px solid red;
+    }
     a {
         text-decoration: none !important;
     }
@@ -14,17 +16,16 @@
     <div class="row justify-content-center">
         <!-- Questions -->
         <div class="col-md-12 col-12">
-            @foreach ($questions as $question)
+            @foreach ($news as $new)
             <div class="card">
                 <div class="card-header text-center">
-                <a href="/fullquestion/{{$question->id}}"><h3>{{ $question->title }}</h3></a>
+                <a href="/fullnews/{{$new->id}}"><h3>{{ $new->title }}</h3></a>
                 </div>
                 <div class="card-footer">
 
                     <div class="float-right">
-
                         @if(Auth::user()->user_role == "helper")
-                        <form method="POST" action="/removequestion/{{ $question->id }}">
+                        <form method="POST" action="/removenews/{{ $new->id }}">
 
                                 @csrf
                                 <button type="submit" class="btn btn-danger float-right">Remove</button>
@@ -33,7 +34,7 @@
                     </div>
                     <div class="float-left">
                         @if(Auth::user()->user_role == "helper")
-                        <form method="POST" action="/aprove/{{ $question->id }}">
+                        <form method="POST" action="/aprove/{{ $new->id }}">
 
                                 @csrf
                                 <button type="submit" class="btn btn-primary float-right">Approve</button>
@@ -43,11 +44,8 @@
                 </div>
 
             </div>
-            @endforeach
         </div>
-    </div>
-
-</div>
+        @endforeach
         <!-- !Questions -->
 
 </div>

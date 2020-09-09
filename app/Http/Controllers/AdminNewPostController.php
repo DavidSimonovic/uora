@@ -13,4 +13,10 @@ class AdminNewPostController extends Controller
 
         return view('admin.newpost',['newposts'=>$newposts]);
     }
+    public function update($id){
+
+        Post::where('id',$id)->update(['state'=>'aproved']);
+
+        return redirect('admin/new/posts');
+    }
 }

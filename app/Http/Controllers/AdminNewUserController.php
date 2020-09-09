@@ -19,7 +19,9 @@ class AdminNewUserController extends Controller
 
     public function update($id){
 
+        User::where('id',$id)->update(['state'=>'aproved']);
 
+        return redirect('admin/new/users');
 
     }
     public function destroy($id){
