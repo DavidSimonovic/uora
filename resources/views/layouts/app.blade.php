@@ -42,6 +42,17 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        @auth
+                        <form class="form-inline" method="POST" action="{{ route('search')}}">
+
+                            @csrf
+                                <div class="form-group mx-sm-3 mb-2">
+                                  <input type="text" class="form-control" id="search" name="search" placeholder="Search">
+                                </div>
+                                <button type="submit" class="btn btn-primary mb-2">Search</button>
+                              </form>
+                        @endauth
+
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">

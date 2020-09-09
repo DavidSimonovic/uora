@@ -146,3 +146,5 @@ Route::post('/aprove/newquestion/{id}','AdminNewQuestionController@update');
 Route::post('/aprove/newpost/{id}','AdminNewPostController@update');
 
 Route::post('/aprove/newnews/{id}','AdminNewNewsController@update');
+
+Route::post('/serach','SearchController@search')->name('search');
