@@ -151,11 +151,11 @@
 
         <div  class="card text-center">
 
-            <div class="card-header"><a href="#"><h4>Helper Questions</h4></a></div>
+        <div class="card-header"><a href="{{ route('admin.helper')}}"><h4>Helper Questions</h4></a></div>
 
             <div class="card-body">
 
-                <h4>helper questions</h4>
+                <h4>{{ $allHelperQuestions }}</h4>
             </div>
 
         </div>

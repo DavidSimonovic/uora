@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\HelperQuestion;
 use App\User;
 use App\Post;
 use App\Question;
@@ -36,9 +38,12 @@ class AdminController extends Controller
 
         $allUser = count(User::all());
         $allNews = count(News::all());
+
         $allReports = count(Report::all());
 
-        return view('admin.home',[ 'newPosts' => $newPosts,'newQuestions' => $newQuestions, 'newUsers' => $newUser, 'newNews' => $newNews, 'allPosts' => $allPosts,'allQuestions' => $allQuestions, 'allUsers' => $allUser, 'allNews' => $allNews,'allReports' => $allReports ]);
+        $allHelperQuestions = count(HelperQuestion::all());
+
+        return view('admin.home',[ 'newPosts' => $newPosts,'newQuestions' => $newQuestions, 'newUsers' => $newUser, 'newNews' => $newNews, 'allPosts' => $allPosts,'allQuestions' => $allQuestions, 'allUsers' => $allUser, 'allNews' => $allNews,'allReports' => $allReports,'allHelperQuestions'=>$allHelperQuestions ]);
 
     }
     else{

@@ -7,6 +7,7 @@ use App\Post;
 use App\Category;
 use App\Question;
 use App\Helper;
+use App\HelperQuestion;
 use App\News;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
@@ -73,7 +74,7 @@ class CreateController extends Controller
 
     if($request['createType'] == 'helper'){
 
-        $helper = new Helper();
+        $helper = new HelperQuestion();
 
         $helper->title = ucfirst($request['createTitle']);
         $helper->author_id = Auth::user()->id;
