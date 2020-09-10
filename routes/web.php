@@ -121,7 +121,7 @@ Route::get('/admin/news','AdminNewsController@index')->name('admin.news');
 
 /* adming/helper reported panel */
 
-Route::get('/admin/reported','AdminReportController@index')->name('admin.reported');
+Route::get('/admin/reported','AdminReportController@index')->name('admin.reports');
 
 
 Route::get('/admin/new/news', 'AdminNewNewsController@index')->name('admin.newnews');
@@ -148,3 +148,11 @@ Route::post('/aprove/newpost/{id}','AdminNewPostController@update');
 Route::post('/aprove/newnews/{id}','AdminNewNewsController@update');
 
 Route::post('/serach','SearchController@search')->name('search');
+
+Route::post('/ban/{id}','AdminUserController@update');
+
+Route::get('/report/{type}/{id}','ReportController@index');
+
+Route::post('/reported/{type}/{id}','ReportController@store');
+
+

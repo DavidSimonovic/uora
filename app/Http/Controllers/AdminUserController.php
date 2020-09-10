@@ -13,4 +13,11 @@ class AdminUserController extends Controller
         return view('admin.users',['users'=>$users]);
     }
 
+    public function update($id){
+
+        User::where('id',$id)->update(['state'=>'baned']);
+
+        return redirect('admin/user');
+    }
+
 }

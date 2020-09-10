@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row justify-content-center">
         @foreach ($questions as $question)
-        <div class="col-md-12 col-8">
+        <div class="col-md-12 col-12">
             <div id='post' class="card text-center">
                 <div class="card-header"><div class="float-left">
                     <h3>{{ $question->title }}</h3>
@@ -36,13 +36,18 @@
                     <p class="float-left">{{ $question->author_name }}</p><p class="float-right">{{ $question->view_count }}</p>
                 </div>
             </div>
+            <div class="float-right">
+
+                <a href="/report/{{'question'}}/{{$question->id}}">report</a>
+                </div>
         </div>
-    </div>
+        </div>
+
 </div>
 <br/>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12 col-8">
+        <div class="col-md-12 col-12">
         <!-- !posts -->
         <form method="POST" action="/fullquestion/{{ $question->id }}">
 
@@ -86,7 +91,7 @@
         <!-- answer section -->
             <div class="row justify-content-center">
                 @foreach ($answers as $answer)
-                <div class="col-md-12 col-8">
+                <div class="col-md-12 col-12">
                     <div id='post' class="card text-center">
                         <div class="card-header text-center">
                             <p class="float-left">{{ $answer->author_name }}</p><p class="float-right">{{ $answer->created_at }}</p>

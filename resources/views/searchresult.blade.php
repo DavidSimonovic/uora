@@ -30,13 +30,9 @@
     <div class="row justify-content-center">
 
 
-
-
         @isset($posts)
 
-
-
-       @foreach ($posts as $post)
+        @foreach ($posts as $post)
 
 
         <div class="col-md-12 col-8">
@@ -56,16 +52,16 @@
     </div>
     @endisset
 
-@isset($questions)
+    @isset($questions)
 
 
     <div class="row justify-content-center">
         <!-- Questions -->
         @foreach ($questions as $question)
-        <div class="col-md-12 col-8">
-            <div id='question' class="card text-center">
+            <div class="col-md-12 col-8">
+                <div id='question' class="card text-center">
 
-            <div class="card-header"><a href="/fullquestion/{{$question->id}}"><h3>{{ $question->title }}</h3></a></div>
+                <div class="card-header"><a href="/fullquestion/{{$question->id}}"><h3>{{ $question->title }}</h3></a></div>
 
                 <div class="card-body">
 
@@ -76,7 +72,9 @@
                 </div>
             </div>
         </div>
+
         @endforeach
+
     </div>
 
     @endisset
@@ -84,29 +82,38 @@
     @isset($news)
 
         <div class="row justify-content-center">
-        <!-- Questions -->
+        <!-- News -->
         @foreach ($news as $new)
+
         @if( $new->importance == 'important')
 
         <div class="col-md-12 col-8">
+
             <div id="important" class="card text-center">
-            <div class="card-header"><a href="/fullnews/{{$new->id}}"><h3>{{ $new->title }}</h3></a></div>
+
+                <div class="card-header"><a href="/fullnews/{{$new->id}}"><h3>{{ $new->title }}</h3></a></div>
 
                 <div class="card-body">
 
                     {{ $new->text }}
                 </div>
+
                 <div class="card-footer">
                     <p class="float-left">{{ $new->author_name }}</p><p class="float-right">{{ $new->view_count }}</p>
                 </div>
+
             </div>
+
         </div>
+
         @endif
-        </div>
+
+    </div>
 
 
 
         <div  class="row justify-content-center">
+
             @if( $new->importance == 'normal')
         <div class="col-md-12 col-8">
             <div id="news" class="card text-center">
@@ -126,6 +133,29 @@
         </div>
         @endisset
         <!-- !Questions -->
+
+
+        @isset($noPost)
+
+
+        <div  class="row justify-content-center">
+
+        <div class="col-md-12 col-12">
+            <div class="card text-center">
+            <div class="card-header"><h3>No post found</h3></div>
+
+                <div class="card-body">
+
+                    <h4>"{{ $searchItem }}"</h4>
+                </div>
+
+            </div>
+        </div>
+
+
+        </div>
+        @endisset
+
 
 </div>
 @endsection

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Answer;
 use App\Question;
+use App\Report;
 use App\QuestionView;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -85,11 +87,13 @@ class QuestionController extends Controller
 
     public function destroy($id){
 
-        $question = Question::where('id', $id);
+         Question::where('id', $id)->delete();
 
-        $question->delete();
+         Report::where([['report_id',$id],['type','question']])->delete();
 
-        return redirect('/question');
+
+
+        return redirect('/home')->with('delete', 'Successfull Deleted');
 
     }
 }

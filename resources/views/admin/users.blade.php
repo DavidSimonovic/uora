@@ -13,6 +13,21 @@
     }
 </style>
 <div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-sm-8">
+        @if(session()->has('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div>
+        @endif
+        @if(session()->has('delete'))
+        <div class="alert alert-success">
+            {{ session()->get('delete') }}
+        </div>
+        @endif
+        </div>
+    </div>
     <div class="row justify-content-center">
         <!-- Questions -->
         <div class="col-md-12 col-12">
@@ -25,22 +40,23 @@
 
                     <div class="float-right">
 
-                        @if(Auth::user()->user_role == "helper")
+
                         <form method="POST" action="/removeuser/{{ $user->id }}">
 
                                 @csrf
                                 <button type="submit" class="btn btn-danger float-right">Remove</button>
                             </form>
-                            @endif
+
                     </div>
                     <div class="float-left">
-                        @if(Auth::user()->user_role == "helper")
-                        <form method="POST" action="/aprove/{{ $user->id }}">
+
+
+                        <form method="POST" action="/ban/{{ $user->id }}">
 
                                 @csrf
-                                <button type="submit" class="btn btn-primary float-right">Approve</button>
+                                <button type="submit" class="btn btn-warning float-right">Ban</button>
                             </form>
-                            @endif
+
                 </div>
                 </div>
 

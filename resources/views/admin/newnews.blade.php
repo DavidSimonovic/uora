@@ -12,7 +12,11 @@
         text-decoration: none !important;
     }
 </style>
+
+
+
 <div class="container">
+    @isset($newNews)
     <div class="row justify-content-center">
         <!-- Questions -->
         <div class="col-md-12 col-12">
@@ -46,6 +50,10 @@
             </div>
         </div>
         @endforeach
+        @endisset
+        @if($newNews == null)
+                NO posts here
+        @endif
         <!-- !Questions -->
 
 </div>

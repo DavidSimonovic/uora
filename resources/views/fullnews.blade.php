@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row justify-content-center">
         @foreach ($news as $new)
-        <div class="col-md-12 col-8">
+        <div class="col-md-12 col-12">
             <div id='post' class="card text-center">
                 <div class="card-header"><div class="float-left">
                     <h3>{{ $new->title }}</h3>
@@ -44,7 +44,7 @@
 <br/>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12 col-8">
+        <div class="col-md-12 col-12">
         <!-- !posts -->
         <form method="POST" action="/fullnews/{{ $new->id }}">
 
@@ -88,7 +88,7 @@
         <!-- comment section -->
             <div class="row justify-content-center">
                 @foreach ($comments as $comment)
-                <div class="col-md-12 col-8">
+                <div class="col-md-12 col-12">
                     <div id='post' class="card text-center">
                         <div class="card-header text-center">
                             <p class="float-left">{{ $comment->author_name }}</p><p class="float-right">{{ $comment->created_at }}</p>
@@ -103,7 +103,7 @@
 
                             @if(Auth::user()->user_role == "helper" or Auth::user()->id === $comment->author_id)
 
-                        <form method="POST" action="/removenewscomment/{{ $comment->news_id }}/{{ $comment->id }}">
+                             <form method="POST" action="/removenewscomment/{{ $comment->news_id }}/{{ $comment->id }}">
 
                                 @csrf
                                 <button type="submit" class="btn btn-primary float-right">Remove</button>

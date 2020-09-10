@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row justify-content-center">
         @foreach ($posts as $post)
-        <div class="col-md-12 col-8">
+        <div class="col-md-12 col-12">
             <div id='post' class="card text-center">
             <div class="card-header"><div class="float-left">
                 <h3>{{ $post->title }}</h3>
@@ -24,6 +24,7 @@
                         <button type="submit" class="btn btn-danger float-right">Remove</button>
                     </form>
                     @endif
+
             </div>
 
             </div>
@@ -34,15 +35,25 @@
                 </div>
                 <div class="card-footer">
                     <p class="float-left">{{ $post->author_name }}</p><p class="float-right">{{ $post->view_count }}</p>
+
                 </div>
-            </div>
+
         </div>
+        <div class="float-right">
+
+            <a href="/report/{{'post'}}/{{$post->id}}">report</a>
+            </div>
+
     </div>
+
+    </div>
+
+
 </div>
 <br/>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12 col-8">
+        <div class="col-md-12 col-12">
         <!-- !posts -->
         <form method="POST" action="/fullpost/{{ $post->id }}">
 
@@ -57,7 +68,7 @@
                     <div class="card-header text-center">
 
 
-              <label for="createComment"><h2 >Comment</h2></label>
+              <label for="createComment"><h2>Comment</h2></label>
                     </div>
               <div class="card-body">
               <textarea class="form-control" id="createComment" name="createComment" rows="3"></textarea>
@@ -88,7 +99,7 @@
         <!-- Comment section -->
             <div class="row justify-content-center">
                 @foreach ($comments as $comment)
-                <div class="col-md-12 col-8">
+                <div class="col-md-12 col-12">
                     <div id='post' class="card text-center">
                         <div class="card-header text-center">
                             <p class="float-left">{{ $comment->author_name }}</p><p class="float-right">{{ $comment->created_at }}</p>

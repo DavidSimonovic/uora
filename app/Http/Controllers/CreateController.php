@@ -46,7 +46,7 @@ class CreateController extends Controller
         if($request['createType'] == 'post'){
 
         $post = new Post();
-        $post->title = $request['createTitle'];
+        $post->title = ucfirst($request['createTitle']);
         $post->author_id = Auth::user()->id;
         $post->author_name = Auth::user()->name.' '.Auth::user()->lastname;
         $post->text = $request['createText'];
@@ -60,7 +60,7 @@ class CreateController extends Controller
     if($request['createType'] == 'question'){
         $question = new Question();
 
-        $question->title = $request['createTitle'];
+        $question->title = ucfirst($request['createTitle']);
         $question->author_id = Auth::user()->id;
         $question->author_name = Auth::user()->name.' '.Auth::user()->lastname;
         $question->text = $request['createText'];
@@ -75,7 +75,7 @@ class CreateController extends Controller
 
         $helper = new Helper();
 
-        $helper->title = $request['createTitle'];
+        $helper->title = ucfirst($request['createTitle']);
         $helper->author_id = Auth::user()->id;
         $helper->author_name = Auth::user()->name.' '.Auth::user()->lastname;
         $helper->text = $request['createText'];
@@ -89,7 +89,7 @@ class CreateController extends Controller
 
         $news = new News();
 
-        $news->title = $request['createTitle'];
+        $news->title = ucfirst($request['createTitle']);
         $news->author_id = Auth::user()->id;
         $news->author_name = Auth::user()->name.' '.Auth::user()->lastname;
         $news->text = $request['createText'];

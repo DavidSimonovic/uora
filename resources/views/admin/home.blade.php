@@ -6,13 +6,16 @@
     .card{
         margin-bottom: 1vh;
     }
-    #report h3{
+    #report h4{
         color: red;
 
     }
     .card a{
 
         text-decoration: none !important;
+    }
+    h4{
+        font-size: 2vh;
     }
 </style>
 <!--!style -->
@@ -30,7 +33,7 @@
 
                 <div class="card-body">
 
-                    <h3>{{ $newQuestions }}</h3>
+                    <h4>{{ $newQuestions }}</h4>
                 </div>
 
             </div>
@@ -43,7 +46,7 @@
 
                 <div class="card-body">
 
-                <h3>{{ $newUsers }}</h3>
+                <h4>{{ $newUsers }}</h4>
                 </div>
 
             </div>
@@ -58,7 +61,7 @@
 
 
 
-                <h3>{{ $newPosts }}</h3>
+                <h4>{{ $newPosts }}</h4>
 
                 </div>
 
@@ -72,7 +75,7 @@
 
                 <div class="card-body">
 
-                    <h3>{{ $newNews }}</h3>
+                    <h4>{{ $newNews }}</h4>
 
                 </div>
 
@@ -94,7 +97,7 @@
 
             <div class="card-body">
 
-                <h3>{{ $allQuestions }}</h3>
+                <h4>{{ $allQuestions }}</h4>
             </div>
 
         </div>
@@ -107,7 +110,7 @@
 
             <div class="card-body">
 
-                <h3>{{ $allUsers }}</h3>
+                <h4>{{ $allUsers }}</h4>
             </div>
 
         </div>
@@ -116,11 +119,11 @@
 
         <div  class="card text-center">
 
-        <div class="card-header"><a href="{{ route('admin.posts')}}"><h4>AllPosts</h4></a></div>
+        <div class="card-header"><a href="{{ route('admin.posts')}}"><h4>All Posts</h4></a></div>
 
             <div class="card-body">
 
-                <h3>{{ $allPosts }}</h3>
+                <h4>{{ $allPosts }}</h4>
             </div>
 
         </div>
@@ -134,7 +137,7 @@
 
             <div class="card-body">
 
-                <h3>{{ $allNews}}</h3>
+                <h4>{{ $allNews }}</h4>
             </div>
 
         </div>
@@ -148,11 +151,11 @@
 
         <div  class="card text-center">
 
-            <div class="card-header"><a href="#"><h4 >Helper Questions</h4></a></div>
+            <div class="card-header"><a href="#"><h4>Helper Questions</h4></a></div>
 
             <div class="card-body">
 
-                <h3>helper questions</h3>
+                <h4>helper questions</h4>
             </div>
 
         </div>
@@ -167,11 +170,11 @@
 
     <div id="report" class="card text-center">
 
-        <div class="card-header"><a href="#"><h4 >All Reports</h4></a></div>
+        <div class="card-header"><a href="{{ route('admin.reports')}}"><h4 >All Reports</h4></a></div>
 
         <div class="card-body">
 
-            <h3>All Reports</h3>
+        <h4>{{ $allReports }}</h4>
         </div>
 
     </div>

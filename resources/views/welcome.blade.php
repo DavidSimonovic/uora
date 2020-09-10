@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-
+<style>
+     h1 {
+      color: white;
+      font-size: 8vh !important;
+  }
+</style>
 <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
 
 <header class="masthead">

@@ -18,24 +18,34 @@ class SearchController extends Controller
 
         $posts = Post::where('title', 'LIKE','%'.$searchItem.'%')->orwhere('author_name', 'LIKE','%'.$searchItem.'%')->get();
 
+        $checkPosts = Post::where('title', 'LIKE','%'.$searchItem.'%')->orwhere('author_name', 'LIKE','%'.$searchItem.'%')->exists();
 
 
 
 
 
         $questions = Question::where('title', 'LIKE','%'.$searchItem.'%')->orwhere('author_name', 'LIKE','%'.$searchItem.'%')->get();
-
+        $checkQuestions = Question::where('title', 'LIKE','%'.$searchItem.'%')->orwhere('author_name', 'LIKE','%'.$searchItem.'%')->exists();
 
 
 
         $news = News::where('title', 'LIKE','%'.$searchItem.'%')->orwhere('author_name', 'LIKE','%'.$searchItem.'%')->get();
+        $checkNews = News::where('title', 'LIKE','%'.$searchItem.'%')->orwhere('author_name', 'LIKE','%'.$searchItem.'%')->exists();
 
 
+        if($checkPosts == null && $checkQuestions == null && $checkNews == null ){
+
+        $noPost = "Nothing found";
 
 
+        return view('searchresult',['noPost'=> $noPost,'searchItem'=>$searchItem]);
+        }
+        else
+        {
 
-        return view('searchresult',['posts'=>$posts,'news'=>$news,'questions'=>$questions]);
+            return view('searchresult',['posts'=>$posts,'news'=>$news,'questions'=>$questions]);
 
+        }
 
     }
 }

@@ -6,7 +6,7 @@ use App\Comment;
 use Illuminate\Support\Facades\Auth;
 use App\PostView;
 use App\PostComment;
-
+use App\Report;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -85,11 +85,12 @@ class PostController extends Controller
 
         public function destroy($id){
 
-            $post = Post::where('id', $id);
+             Post::where('id', $id)->delete();
 
-            $post->delete();
+             Report::where([['report_id',$id],['type','post']])->delete();
 
-            return redirect('/posts');
+
+            return redirect('/home')->with('success', 'Successfull Deleted');
 
         }
 

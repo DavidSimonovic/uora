@@ -21,14 +21,14 @@ class AdminNewUserController extends Controller
 
         User::where('id',$id)->update(['state'=>'aproved']);
 
-        return redirect('admin/new/users');
+        return redirect()->back()->with('success','User aproved');
 
     }
     public function destroy($id){
 
-        $user = User::where('id',$id);
-        $user->delete();
+        User::where('id',$id)->delete();
 
-        return redirect('/admin/new/users');
+        return redirect()->back()->with('deleted', 'User Deleted');
+
     }
 }
