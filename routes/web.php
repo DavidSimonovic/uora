@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -134,12 +135,15 @@ Route::get('admin/new/questions', 'AdminNewQuestionController@index')->name('adm
 
 Route::get('/admin/new/users', 'AdminNewUserController@index')->name('admin.newuser');
 
-Route::post('/removeuser/{id}', "AdminNewUserController@destroy");
+Route::post('/removeuser/{id}', 'UserController@destroy');
 
-Route::get('profil/{id}','ProfilController@index');
+Route::get('/profil/{id}','ProfilController@show');
+
+Route::get('/category/','CategoryController@index');
 
 
-Route::post('/aprove/newuser/{id}','AdminNewUserController@update');
+Route::post('/aprove/newuser/{id}','UserController@update');
+
 
 Route::post('/aprove/newquestion/{id}','AdminNewQuestionController@update');
 
@@ -155,6 +159,6 @@ Route::get('/report/{type}/{id}','ReportController@index');
 
 Route::post('/reported/{type}/{id}','ReportController@store');
 
-Route::get('admin/helper/','AdminHelperQuestionController@index')->name('admin.helper');
+Route::get('/admin/helper/','AdminHelperQuestionController@index')->name('admin.helper');
 
 Route::post('/removehelperquestion/{id}','AdminHelperQuestionController@destroy');

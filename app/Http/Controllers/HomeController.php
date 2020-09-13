@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Post;
 use App\Question;
 use App\News;
@@ -29,17 +30,12 @@ class HomeController extends Controller
     {
         $news = News::all();
         $posts = Post::all();
-
+        $categories = Category::all();
         $questions = Question::all();
 
 
 
-        return view('home', ['posts' => $posts, 'questions' => $questions ,'news' => $news]);
-    }
-     public function show(){
-
-        // Category post
-
+        return view('home', ['posts' => $posts, 'questions' => $questions ,'news' => $news, 'categories'=>$categories]);
     }
 
 

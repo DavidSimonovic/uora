@@ -43,8 +43,6 @@
     <div class="row justify-content-center">
         <div class="col-md-6 col-8">
 
-
-
         <form method="GET" action="/category/">
 
                 <!-- Choose category input field dropdown -->

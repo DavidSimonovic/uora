@@ -11,6 +11,8 @@ use App\HelperQuestion;
 use App\News;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 
 use Illuminate\Http\Request;
@@ -55,10 +57,16 @@ class CreateController extends Controller
         $post->category_id = $request['createCategory'];
         $post->save();
 
-        return redirect('/home');
+        $post_count = count(Post::where('category_id',$request['createCategory'])->get());
+
+        Category::where('id',$request['createCategory'])->update(['post_count' => DB::raw($post_count + 1 )]);
+
+
+        return redirect()->back()->with('success','Post submited.');
     }
 
     if($request['createType'] == 'question'){
+
         $question = new Question();
 
         $question->title = ucfirst($request['createTitle']);
@@ -69,7 +77,7 @@ class CreateController extends Controller
         $question->category_id = $request['createCategory'];
         $question->save();
 
-        return redirect('/home');
+        return redirect()->back()->with('success','Question submited.');
     }
 
     if($request['createType'] == 'helper'){
@@ -84,7 +92,7 @@ class CreateController extends Controller
         $helper->category_id = $request['createCategory'];
         $helper->save();
 
-        return redirect('/home');
+        return redirect()->back()->with('success','Helper question submited.');
     }
     if($request['createType'] == 'news'){
 
@@ -100,7 +108,7 @@ class CreateController extends Controller
 
         $news->save();
 
-        return redirect('/home');
+        return redirect()->back()->with('success','News submited.');
     }
 
     }

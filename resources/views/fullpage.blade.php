@@ -6,6 +6,9 @@
     .card{
         margin-bottom: 2vh;
     }
+    a {
+        text-decoration: none !important;
+    }
 </style>
 
 <div class="container">
@@ -34,7 +37,7 @@
                     {{ $post->text }}
                 </div>
                 <div class="card-footer">
-                    <p class="float-left">{{ $post->author_name }}</p><p class="float-right">{{ $post->view_count }}</p>
+                <a href="/profil/{{ $post->author_id }}"><p class="float-left">{{ $post->author_name }}</p></a><p class="float-right">{{ $post->view_count }}</p>
 
                 </div>
 
@@ -102,7 +105,7 @@
                 <div class="col-md-12 col-12">
                     <div id='post' class="card text-center">
                         <div class="card-header text-center">
-                            <p class="float-left">{{ $comment->author_name }}</p><p class="float-right">{{ $comment->created_at }}</p>
+                        <a href="/profil/{{$comment->author_id }}"<p class="float-left">{{ $comment->author_name }}</p></a><p class="float-right">{{ $comment->created_at }}</p>
                                   </div>
                         <div class="card-body">
 

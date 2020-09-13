@@ -11,15 +11,42 @@
     }
 </style>
 <div class="container">
+    <!-- ALERT SECTION -->
+
     <div class="row justify-content-center">
-        <!-- Questions -->
+
+        <div class="col-sm-8">
+        @if(session()->has('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div>
+        @endif
+
+        @if(session()->has('delete'))
+        <div class="alert alert-success">
+            {{ session()->get('delete') }}
+        </div>
+        @endif
+
+        </div>
+
+    </div>
+
+    <!-- !ALERT SECTION -->
+
+    <!-- NEW QUESTIONS -->
+    <div class="row justify-content-center">
+
         <div class="col-md-12 col-12">
             @foreach ($newquestions as $question)
             <div class="card">
+
                 <div class="card-header text-center">
                 <a href="/fullquestion/{{$question->id}}"><h3>{{ $question->title }}</h3></a>
                 </div>
                 <div class="card-footer">
+
+                    <!-- REMOVE BUTTON -->
 
                     <div class="float-right">
 
@@ -31,6 +58,9 @@
                             </form>
                             @endif
                     </div>
+                    <!-- !REMOVE BUTTON -->
+
+                    <!-- APROVE BUTTON -->
                     <div class="float-left">
                         @if(Auth::user()->user_role == "helper")
                         <form method="POST" action="/aprove/newquestion/{{ $question->id }}">
@@ -40,6 +70,9 @@
                             </form>
                             @endif
                 </div>
+
+                <!-- !APROVE BUTTON -->
+
                 </div>
 
             </div>
@@ -48,7 +81,7 @@
     </div>
 
 </div>
-        <!-- !Questions -->
+        <!-- !NEW QUESTIONS -->
 
 </div>
 @endsection

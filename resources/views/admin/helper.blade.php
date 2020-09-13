@@ -11,6 +11,8 @@
     }
 </style>
 <div class="container">
+
+    <!-- ALERT SECTION -->
     <div class="row justify-content-center">
         <div class="col-sm-8">
         @if(session()->has('success'))
@@ -25,8 +27,14 @@
         @endif
         </div>
     </div>
+
+    <!-- !ALERT SECTION -->
+
+
+    <!--QUESTIONS-->
+
     <div class="row justify-content-center">
-        <!-- Questions -->
+
 
         <div class="col-md-12 col-12">
             @foreach ($allHelperQuestions as $question)
@@ -63,7 +71,7 @@
     </div>
 
 </div>
-        <!-- !Questions -->
+       <!-- !QUESTIONS-->
 
 </div>
 @endsection

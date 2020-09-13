@@ -20,14 +20,15 @@
 </style>
 <!--!style -->
 
-<!-- new questions-->
+ <!-- NEW QUESTIONS -->
 <div class="container">
+
     <div class="row justify-content-center">
         <div class="col-md-3 col-12">
             <div  class="card text-center">
             <div class="card-header">
                 <a href="{{ route('admin.newquestions') }}">
-                <h4> New questions</h4>
+                <h4>New questions</h4>
                 </a>
             </div>
 
@@ -38,6 +39,10 @@
 
             </div>
         </div>
+
+    <!-- !NEW QUESTIONS -->
+
+    <!-- NEW USERS -->
         <div class="col-md-3 col-12">
 
             <div  class="card text-center">
@@ -51,6 +56,12 @@
 
             </div>
          </div>
+
+     <!-- NEW USERS -->
+
+    <!-- NEW POSTS -->
+
+
          <div class="col-md-3 col-12">
 
             <div  class="card text-center">
@@ -67,11 +78,16 @@
 
             </div>
          </div>
-         <div class="col-md-3 col-12">
+
+
+    <!-- !NEW POSTS -->
+
+    <!-- NEW NEWS -->
+    <div class="col-md-3 col-12">
 
             <div  class="card text-center">
 
-            <div class="card-header"><a href="{{ route('admin.newnews')}}"><h4>New News</h4></a></div>
+             <div class="card-header"><a href="{{ route('admin.newnews')}}"><h4>New News</h4></a></div>
 
                 <div class="card-body">
 
@@ -82,26 +98,35 @@
             </div>
          </div>
     </div>
-<!--!new questions -->
+    <!-- !NEW NEWS -->
 
 
-
+<!-- ALL QUESTIONS -->
 <div class="row justify-content-center">
     <div class="col-md-3 col-12">
         <div  class="card text-center">
-        <div class="card-header">
-            <a href="{{ route('admin.question') }}">
-            <h4>All questions</h4>
-            </a>
+
+            <div class="card-header">
+
+                <a href="{{ route('admin.question') }}">
+
+                    <h4>All questions</h4>
+
+                </a>
         </div>
 
             <div class="card-body">
 
                 <h4>{{ $allQuestions }}</h4>
+
             </div>
 
         </div>
     </div>
+    <!-- !ALL QUESTIONS -->
+
+    <!-- ALL USERS -->
+
     <div class="col-md-3 col-12">
 
         <div  class="card text-center">
@@ -115,6 +140,11 @@
 
         </div>
      </div>
+
+     <!-- !ALL USERS -->
+
+     <!-- ALL POSTS -->
+
      <div class="col-md-3 col-12">
 
         <div  class="card text-center">
@@ -128,6 +158,9 @@
 
         </div>
      </div>
+     <!-- !ALL POSTS -->
+
+     <!-- ALL NEWS -->
 
      <div class="col-md-3 col-12">
 
@@ -144,8 +177,9 @@
      </div>
 </div>
 
+    <!-- !ALL NEWS -->
 
-
+    <!-- HELPER QUESTIONS -->
 <div class="row justify-content-center">
     <div class="col-md-12 col-12">
 
@@ -162,8 +196,10 @@
      </div>
     </div>
 
+    <!-- !HELPER QUESTIONS -->
 
 
+    <!-- ALL REPORTS -->
 
 <div class="row justify-content-center">
 <div class="col-md-12 col-12">
@@ -181,9 +217,7 @@
  </div>
 </div>
 
-
-
-
+<!-- !ALL REPORTS -->
 
 </div>
 @endsection

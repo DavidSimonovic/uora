@@ -10,7 +10,26 @@
         text-decoration: none !important;
     }
 </style>
+
 <div class="container">
+    <div class="row justify-content-center">
+
+        <div class="col-sm-8">
+        @if(session()->has('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div>
+        @endif
+
+        @if(session()->has('delete'))
+        <div class="alert alert-success">
+            {{ session()->get('delete') }}
+        </div>
+        @endif
+
+        </div>
+
+    </div>
     <div class="row justify-content-center">
         <!-- posts -->
         <div class="col-md-12 col-12">
@@ -33,11 +52,14 @@
                     </div>
                     <div class="float-left">
                         @if(Auth::user()->user_role == "helper")
-                        <form method="POST" action="/aprove/{{ $post->id }}">
+
+                            <form method="POST" action="/hold/{{ $post->id }}">
 
                                 @csrf
-                                <button type="submit" class="btn btn-primary float-right">Approve</button>
+                                <button type="submit" class="btn btn-warning float-right">Hold</button>
+
                             </form>
+
                             @endif
                 </div>
                 </div>

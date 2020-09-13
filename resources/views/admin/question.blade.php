@@ -12,6 +12,24 @@
 </style>
 <div class="container">
     <div class="row justify-content-center">
+
+        <div class="col-sm-8">
+        @if(session()->has('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div>
+        @endif
+
+        @if(session()->has('delete'))
+        <div class="alert alert-success">
+            {{ session()->get('delete') }}
+        </div>
+        @endif
+
+        </div>
+
+    </div>
+    <div class="row justify-content-center">
         <!-- Questions -->
         <div class="col-md-12 col-12">
             @foreach ($questions as $question)

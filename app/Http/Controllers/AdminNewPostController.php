@@ -17,6 +17,6 @@ class AdminNewPostController extends Controller
 
         Post::where('id',$id)->update(['state'=>'aproved']);
 
-        return redirect('admin/new/posts');
+        return redirect()->back()->with('success','Post was aproved.');
     }
 }
