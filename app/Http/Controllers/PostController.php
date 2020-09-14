@@ -87,10 +87,12 @@ class PostController extends Controller
 
              Post::where('id', $id)->delete();
 
+             PostComment::where('post_id',$id)->delete();
+
              Report::where([['report_id',$id],['type','post']])->delete();
 
 
-            return redirect('/home')->with('success', 'Successfull Deleted');
+            return redirect()->back()->with('success', 'Successfull Deleted');
 
         }
 

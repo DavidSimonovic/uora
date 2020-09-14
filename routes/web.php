@@ -127,11 +127,17 @@ Route::get('/admin/reported','AdminReportController@index')->name('admin.reports
 
 Route::get('/admin/new/news', 'AdminNewNewsController@index')->name('admin.newnews');
 
+Route::post('/removehelperanswer/{id}/{ansid}','HelperAnswerController@destroy');
+
+Route::post('/removequestionanswer/{id}','AdminHelperController@destroy');
+
+Route::post('/helper/full/{id}','HelperAnswerController@store');
 
 Route::get('/admin/new/posts', 'AdminNewPostController@index')->name('admin.newposts');
 
 Route::get('admin/new/questions', 'AdminNewQuestionController@index')->name('admin.newquestions');
 
+Route::get('/helper/full/{id}','AdminHelperQuestionController@show');
 
 Route::get('/admin/new/users', 'AdminNewUserController@index')->name('admin.newuser');
 
@@ -141,6 +147,7 @@ Route::get('/profil/{id}','ProfilController@show');
 
 Route::get('/category/','CategoryController@index');
 
+Route::post('/profil/edit','ProfilController@edit')->name('profil.edit');
 
 Route::post('/aprove/newuser/{id}','UserController@update');
 

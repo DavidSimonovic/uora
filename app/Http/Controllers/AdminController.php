@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\HelperQuestion;
+use App\Helper;
 use App\User;
 use App\Post;
 use App\Question;
@@ -41,7 +41,7 @@ class AdminController extends Controller
 
         $allReports = count(Report::all());
 
-        $allHelperQuestions = count(HelperQuestion::all());
+        $allHelperQuestions = count(Helper::all());
 
         return view('admin.home',[ 'newPosts' => $newPosts,'newQuestions' => $newQuestions, 'newUsers' => $newUser, 'newNews' => $newNews, 'allPosts' => $allPosts,'allQuestions' => $allQuestions, 'allUsers' => $allUser, 'allNews' => $allNews,'allReports' => $allReports,'allHelperQuestions'=>$allHelperQuestions ]);
 

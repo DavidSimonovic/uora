@@ -14,13 +14,7 @@ class AdminNewNewsController extends Controller
         return view('admin.newnews',['newNews' => $newNews]);
     }
 
-    public function update($id){
 
-        News::where('id',$id)->update(['state'=>'aproved']);
-
-        return redirect('admin/new/news');
-
-    }
 
 
 }

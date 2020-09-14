@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHelperQuestions extends Migration
+class CreateHelperAnswers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class CreateHelperQuestions extends Migration
      */
     public function up()
     {
-        Schema::create('helper_questions', function (Blueprint $table) {
+        Schema::create('helper_answers', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->integer('question_id');
             $table->integer('author_id');
             $table->string('author_name');
-            $table->text('text');
+            $table->text('answer');
             $table->timestamps();
-            $table->string('state')->default('new');
-            $table->integer('city_id')->default(0);
-            $table->integer('category_id')->default(0);
         });
     }
 
@@ -33,6 +30,6 @@ class CreateHelperQuestions extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('helper_questions');
+        Schema::dropIfExists('helper_answers');
     }
 }

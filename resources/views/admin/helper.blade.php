@@ -40,7 +40,7 @@
             @foreach ($allHelperQuestions as $question)
             <div class="card">
                 <div class="card-header text-center">
-                <a href="/fullquestion/{{$question->id}}"><h3>{{ $question->title }}</h3></a>
+                <a href="/helper/full/{{$question->id}}"><h3>{{ $question->title }}</h3></a>
                 </div>
                 <div class="card-footer">
 

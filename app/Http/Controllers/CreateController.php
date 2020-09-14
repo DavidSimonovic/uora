@@ -7,7 +7,7 @@ use App\Post;
 use App\Category;
 use App\Question;
 use App\Helper;
-use App\HelperQuestion;
+
 use App\News;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
@@ -51,6 +51,7 @@ class CreateController extends Controller
         $post = new Post();
         $post->title = ucfirst($request['createTitle']);
         $post->author_id = Auth::user()->id;
+        $post->type = 'Post';
         $post->author_name = Auth::user()->name.' '.Auth::user()->lastname;
         $post->text = $request['createText'];
         $post->city_id = $request['createCity'];
@@ -83,6 +84,7 @@ class CreateController extends Controller
         $question->title = ucfirst($request['createTitle']);
         $question->author_id = Auth::user()->id;
         $question->author_name = Auth::user()->name.' '.Auth::user()->lastname;
+        $question->type = 'Question';
         $question->text = $request['createText'];
         $question->city_id = $request['createCity'];
         $question->category_id = $request['createCategory'];
@@ -102,16 +104,17 @@ class CreateController extends Controller
 
     if($request['createType'] == 'helper'){
 
-        $helper = new HelperQuestion();
+        $helper = new Helper();
 
         $helper->title = ucfirst($request['createTitle']);
         $helper->author_id = Auth::user()->id;
         $helper->author_name = Auth::user()->name.' '.Auth::user()->lastname;
+        $helper->type = 'Helper Question';
         $helper->text = $request['createText'];
         $helper->city_id = $request['createCity'];
         $helper->category_id = $request['createCategory'];
 
-        if(!HelperQuestion::where('title',$request['createTitle'])->exists()){
+        if(!Helper::where('title',$request['createTitle'])->exists()){
 
         $helper->save();
 

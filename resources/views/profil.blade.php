@@ -19,13 +19,35 @@ a:link{
             <div class="card-header">{{ $user_info->name }} {{ $user_info ->lastname }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                  <div class="float-left"></div>
+                  <div class="float-right"><table class="table table-hover">
+                    <thead>
+                      <tr>
 
-                    {{ __('You are logged in!') }}
+                        <th>Type</th>
+                        <th>Total views</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Posts</td>
+
+                        <td>john@example.com</td>
+                      </tr>
+                      <tr>
+                        <td>Questions</td>
+
+                        <td>mary@example.com</td>
+                      </tr>
+                      <tr>
+                        <td col=2>All views</td>
+
+                        <td>july@example.com</td>
+                      </tr>
+                    </tbody>
+                  </table></div>
+
+
                 </div>
             </div>
         </div>

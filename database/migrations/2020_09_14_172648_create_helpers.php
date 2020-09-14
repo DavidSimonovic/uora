@@ -19,6 +19,7 @@ class CreateHelpers extends Migration
             $table->integer('author_id');
             $table->string('author_name');
             $table->text('text');
+            $table->string('type');
             $table->timestamps();
             $table->string('state')->default('new');
             $table->integer('city_id')->default(0);
