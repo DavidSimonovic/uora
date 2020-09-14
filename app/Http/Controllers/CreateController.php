@@ -55,14 +55,25 @@ class CreateController extends Controller
         $post->text = $request['createText'];
         $post->city_id = $request['createCity'];
         $post->category_id = $request['createCategory'];
-        $post->save();
 
-        $post_count = count(Post::where('category_id',$request['createCategory'])->get());
+        if(!Post::where('title',$request['createTitle'])->exists()){
 
-        Category::where('id',$request['createCategory'])->update(['post_count' => DB::raw($post_count + 1 )]);
+            $post->save();
 
 
-        return redirect()->back()->with('success','Post submited.');
+            $post_count = count(Post::where('category_id',$request['createCategory'])->get());
+
+            Category::where('id',$request['createCategory'])->update(['post_count' => DB::raw($post_count + 1 )]);
+
+            return redirect()->back()->with('success','Post submited.');
+    }
+    else{
+
+        return redirect()->back()->with('error','Post Title exists.');
+    }
+
+
+
     }
 
     if($request['createType'] == 'question'){
@@ -75,9 +86,18 @@ class CreateController extends Controller
         $question->text = $request['createText'];
         $question->city_id = $request['createCity'];
         $question->category_id = $request['createCategory'];
+
+        if(!Question::where('title',$request['createTitle'])->exists()){
+
+
         $question->save();
 
         return redirect()->back()->with('success','Question submited.');
+        }
+        else{
+
+            return redirect()->back()->with('error','Question Title exists.');
+        }
     }
 
     if($request['createType'] == 'helper'){
@@ -90,9 +110,17 @@ class CreateController extends Controller
         $helper->text = $request['createText'];
         $helper->city_id = $request['createCity'];
         $helper->category_id = $request['createCategory'];
+
+        if(!HelperQuestion::where('title',$request['createTitle'])->exists()){
+
         $helper->save();
 
         return redirect()->back()->with('success','Helper question submited.');
+
+        }else{
+
+            return redirect()->back()->with('error','Helper Question Title exists.');
+        }
     }
     if($request['createType'] == 'news'){
 
@@ -106,9 +134,16 @@ class CreateController extends Controller
         $news->city_id = $request['createCity'];
         $news->category_id = $request['createCategory'];
 
+        if(!News::where('title',$request['createTitle'])->exists()){
+
         $news->save();
 
-        return redirect()->back()->with('success','News submited.');
+            return redirect()->back()->with('success','News submited.');
+
+        }else{
+
+            return redirect()->back()->with('error','News Title Exists.');
+        }
     }
 
     }

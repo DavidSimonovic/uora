@@ -16,7 +16,7 @@ a:link{
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-            <div class="card-header">{{ $user_info->name }} {{ $user_info->lastname }}</div>
+            <div class="card-header">{{ $user_info->name }} {{ $user_info ->lastname }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
