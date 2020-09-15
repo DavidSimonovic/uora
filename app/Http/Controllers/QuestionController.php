@@ -94,7 +94,7 @@ class QuestionController extends Controller
 
 
 
-        return redirect('/home')->with('delete', 'Successfull Deleted');
+        return redirect()->back()->with('success', 'Successfull Deleted');
 
     }
     public function edit($id){

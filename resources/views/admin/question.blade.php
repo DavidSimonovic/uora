@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container">
+
+
+    <!-- Alert -->
     <div class="row justify-content-center">
 
         <div class="col-sm-8">
@@ -11,13 +14,10 @@
         </div>
         @endif
 
-        @if(session()->has('delete'))
-        <div class="alert alert-success">
-            {{ session()->get('delete') }}
-        </div>
-        @endif
 
         </div>
+
+    <!-- !Alert -->
 
     </div>
     <div class="row justify-content-center">
@@ -32,23 +32,19 @@
 
                     <div class="float-right">
 
-                        @if(Auth::user()->user_role == "helper")
+                        <!-- Remove question -->
                         <form method="POST" action="/removequestion/{{ $question->id }}">
 
                                 @csrf
                                 <button type="submit" class="btn btn-danger float-right">Remove</button>
                             </form>
-                            @endif
+                            <!-- !Remove question -->
                     </div>
-                    <div class="float-left">
-                        @if(Auth::user()->user_role == "helper")
-                        <form method="POST" action="/aprove/{{ $question->id }}">
 
-                                @csrf
-                                <button type="submit" class="btn btn-primary float-right">Approve</button>
-                            </form>
-                            @endif
+                    <div class="float-left">
+                    <a href="/profil/{{ $question->author_id }}">{{ $question->author_name }} </a>
                 </div>
+
                 </div>
 
             </div>

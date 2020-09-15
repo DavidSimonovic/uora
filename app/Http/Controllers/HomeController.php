@@ -28,10 +28,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $news = News::all();
-        $posts = Post::all();
+        $news = News::where('state','aproved')->get();
+        $posts = Post::where('state','aproved')->get();
         $categories = Category::all();
-        $questions = Question::all();
+        $questions = Question::where('state','aproved')->get();
 
 
 

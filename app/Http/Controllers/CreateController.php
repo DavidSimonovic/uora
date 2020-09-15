@@ -51,6 +51,13 @@ class CreateController extends Controller
      */
     protected function create(Request $request)
     {
+
+        if(Auth::user()->state == 'banned'){
+
+            return redirect()->back()->with('success','You can not write,you are banned.');
+
+        }
+        else{
         if($request['createType'] == 'post'){
 
         $post = new Post();
@@ -165,7 +172,7 @@ class CreateController extends Controller
 
     }
 
-
+    }
 
 
 

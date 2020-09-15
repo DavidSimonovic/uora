@@ -127,6 +127,11 @@ Route::get('/admin/reported','AdminReportController@index')->name('admin.reports
 
 Route::get('/admin/new/news', 'AdminNewNewsController@index')->name('admin.newnews');
 
+Route::post('/aprove/new/news/{id}', 'AdminNewNewsController@update');
+
+Route::post('/aprove/{id}','AdminNewQuestionController@update');
+
+
 Route::post('/removehelperanswer/{id}/{ansid}','HelperAnswerController@destroy');
 
 Route::post('/removequestionanswer/{id}','AdminHelperController@destroy');
@@ -151,6 +156,7 @@ Route::post('/profil/edit','ProfilController@edit')->name('profil.edit');
 
 Route::post('/aprove/newuser/{id}','UserController@update');
 
+Route::post('/hold/{id}','AdminPostController@update');
 
 Route::post('/aprove/newquestion/{id}','AdminNewQuestionController@update');
 

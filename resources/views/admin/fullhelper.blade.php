@@ -47,7 +47,7 @@
                     {{ $question->text }}
                 </div>
                 <div class="card-footer">
-                    <p class="float-left">{{ $question->author_name }}</p><p class="float-right">{{ $question->view_count }}</p>
+                <a href="/profil/{{ $question->author_id }}"><p class="float-left">{{ $question->author_name }}</p></a><p class="float-right">{{ $question->view_count }}</p>
                 </div>
             </div>
             <div class="float-right">

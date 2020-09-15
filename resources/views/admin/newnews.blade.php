@@ -64,7 +64,7 @@
 
                         @if(Auth::user()->user_role == "helper")
 
-                            <form method="POST" action="/aprove/newnews/{{ $new->id }}">
+                            <form method="POST" action="/aprove/new/news/{{ $new->id }}">
 
                                 @csrf
                                 <button type="submit" class="btn btn-primary float-right">Approve</button>

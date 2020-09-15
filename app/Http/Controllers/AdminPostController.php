@@ -18,4 +18,11 @@ class AdminPostController extends Controller
 
         return view('admin.post',['posts'=>$posts]);
     }
+
+    public function update($id){
+
+        Post::where('id',$id)->update(['state' => 'new']);
+
+        return redirect()->back()->with('success','Post is unaproved');
+    }
 }

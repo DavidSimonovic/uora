@@ -47,11 +47,13 @@ class ProfilController extends Controller
 
     $user_info = User::find($id);
 
-    $all_posts = Post::where('author_id',Auth::user()->id)->get();
-    $all_question = Question::where('author_id',Auth::user()->id)->get();
+    $all_posts = Post::where('author_id',$id)->get();
+    $all_question = Question::where('author_id',$id)->get();
 
 
-    return view('profil',[
+    return view('profil',
+    [
+
     'user_info' => $user_info ,
     'all_posts'=>$all_posts ,
     'all_question'=>$all_question,

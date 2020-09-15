@@ -21,6 +21,11 @@ class AdminNewNewsController extends Controller
     }
 
 
+    public function update($id){
 
+        News::where('id',$id)->update(['state'=>'aproved']);
 
+        return redirect()->back()->with('success','You aproved the news');
+
+    }
 }
