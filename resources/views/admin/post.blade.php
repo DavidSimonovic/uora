@@ -38,6 +38,7 @@
                 <a href="/fullpost/{{$post->id}}"><h3>{{ $post->title }}</h3></a>
                 </div>
                 <!-- !CARD HEADER  -->
+
                 <div class="card-footer">
 
                     <div class="float-right">

@@ -22,71 +22,70 @@ Route::get('/', function () {
     return view('welcome');
 });
 /* Rute for showing the ArthritisTYpe */
+/* Auth */
 
 Route::get('/register','Auth\RegisterController@show')->name('register');
 
-/* Dislpaying all posts,questions,news */
+/* !Auth */
 
-Route::get('/home','HomeController@index')->name('home.index');
+/* --------------------------------------------------------------------- */
 
-/* Profil route will show all your posts,questions and personal info */
+/* ADMIN ROUTS */
 
-Route::get('/profil','ProfilController@index')->name('profil.index');
+Route::get('/admin','AdminController@index')->name('admin.index');
 
-/* this route is to display the input fields and dropdown options */
+Route::post('/ban/{id}','AdminUserController@update');
 
-Route::get('/create','CreateController@index')->name('create.index');
+Route::post('/removehelperquestion/{id}','AdminHelperQuestionController@destroy');
 
-/* this route is for saving the post */
+Route::post('/answered/{id}','AdminHelperQuestionController@update');
 
-Route::post('/create','CreateController@create')->name('create.create');
+Route::get('/admin/helper/','AdminHelperQuestionController@index')->name('admin.helper');
 
-/* showing the full post with comments */
+Route::get('/admin/new/helper/','AdminNewHelperQuestionController@index')->name('admin.newhelper');
 
-Route::get('/fullpost/{id}','PostController@show');
+Route::get('/admin/new/posts', 'AdminNewPostController@index')->name('admin.newposts');
 
-/* showing full questioon with comment */
+Route::get('/admin/new/questions', 'AdminNewQuestionController@index')->name('admin.newquestions');
 
-Route::get('/fullquestion/{id}','QuestionController@show');
+Route::get('/helper/full/{id}','AdminHelperQuestionController@show');
 
-/* showing only questions */
+Route::get('/admin/new/users', 'AdminNewUserController@index')->name('admin.newuser');
 
-Route::get('/question','QuestionController@index')->name('question');
+Route::post('/removequestionanswer/{id}','AdminHelperController@destroy');
 
-/* removing question */
+Route::post('/hold/{id}','AdminPostController@update');
 
-Route::post('/removequestion/{id}/','QuestionController@destroy');
-/* showing only posts */
+Route::post('/aprove/newquestion/{id}','AdminNewQuestionController@update');
 
-Route::get('/posts','PostController@index')->name('posts');
+Route::post('/aprove/newpost/{id}','AdminNewPostController@update');
 
-/* showing only news */
+Route::post('/aprove/newnews/{id}','AdminNewNewsController@update');
 
-Route::get('/news','NewsController@index')->name('news');
+Route::get('/admin/questions','AdminQuestionController@index')->name('admin.question');
 
-/* remove news/ only heper can remove new */
+Route::get('/admin/user','AdminUserController@index')->name('admin.user');
 
-Route::post('/removenews/{id}/','NewsController@destroy');
+Route::get('/admin/posts','AdminPostController@index')->name('admin.posts');
 
-/* remove answer from question */
+Route::get('/admin/news','AdminNewsController@index')->name('admin.news');
 
-Route::post('/removeanswer/{id}/{ansid}','AnswerController@destroy');
+Route::get('/admin/reported','AdminReportController@index')->name('admin.reports');
 
-/* removing the comment on a post */
+Route::get('/admin/new/news', 'AdminNewNewsController@index')->name('admin.newnews');
 
+Route::post('/aprove/new/news/{id}', 'AdminNewNewsController@update');
 
-Route::post('/removepostcomment/{id}/{postcomid}','PostCommentController@destroy');
-
-/* removing the post compleatly */
+Route::post('/aprove/{id}','AdminNewQuestionController@update');
 
 
-Route::post('/removepost/{id}/','PostController@destroy');
+/* ADMIN ROUTS */
 
-/* saving the comment on a post  */
 
-Route::post('/fullpost/{id}','PostCommentController@store');
+/* --------------------------------------------------------------------- */
 
-/* full news page */
+
+/* NEWS */
 
 Route::get('/fullnews/{id}','NewsController@show');
 
@@ -98,86 +97,131 @@ Route::post('/fullnews/{id}','NewsCommentController@store');
 
 Route::post('/removenewscomment/{id}/{newscomid}','NewsCommentController@destroy');
 
-/* saving post question comment */
+/* showing only news */
 
-Route::post('/fullquestion/{id}','AnswerController@store');
+Route::get('/news','NewsController@index')->name('news');
 
-/* adming/helper home panel */
+/* remove news/ only heper can remove new */
 
-Route::get('/admin','AdminController@index')->name('admin.index');
-
-/* adming/helper  questions panel */
-
-Route::get('/admin/questions','AdminQuestionController@index')->name('admin.question');
-
-/* adming/helper  user panel */
-
-Route::get('/admin/user','AdminUserController@index')->name('admin.user');
+Route::post('/removenews/{id}/','NewsController@destroy');
 
 
-Route::get('/admin/posts','AdminPostController@index')->name('admin.posts');
+/* !NEWS */
 
+/* --------------------------------------------------------------------- */
 
-Route::get('/admin/news','AdminNewsController@index')->name('admin.news');
-
-/* adming/helper reported panel */
-
-Route::get('/admin/reported','AdminReportController@index')->name('admin.reports');
-
-
-Route::get('/admin/new/news', 'AdminNewNewsController@index')->name('admin.newnews');
-
-Route::post('/aprove/new/news/{id}', 'AdminNewNewsController@update');
-
-Route::post('/aprove/{id}','AdminNewQuestionController@update');
-
-
-Route::post('/removehelperanswer/{id}/{ansid}','HelperAnswerController@destroy');
-
-Route::post('/removequestionanswer/{id}','AdminHelperController@destroy');
-
-Route::post('/helper/full/{id}','HelperAnswerController@store');
-
-Route::get('/admin/new/posts', 'AdminNewPostController@index')->name('admin.newposts');
-
-Route::get('admin/new/questions', 'AdminNewQuestionController@index')->name('admin.newquestions');
-
-Route::get('/helper/full/{id}','AdminHelperQuestionController@show');
-
-Route::get('/admin/new/users', 'AdminNewUserController@index')->name('admin.newuser');
-
-Route::post('/removeuser/{id}', 'UserController@destroy');
-
-Route::get('/profil/{id}','ProfilController@show');
-
-Route::get('/category/','CategoryController@index');
-
-Route::post('/profil/edit','ProfilController@edit')->name('profil.edit');
-
-Route::post('/aprove/newuser/{id}','UserController@update');
-
-Route::post('/hold/{id}','AdminPostController@update');
-
-Route::post('/aprove/newquestion/{id}','AdminNewQuestionController@update');
-
-Route::post('/aprove/newpost/{id}','AdminNewPostController@update');
-
-Route::post('/aprove/newnews/{id}','AdminNewNewsController@update');
-
-Route::post('/serach','SearchController@search')->name('search');
-
-Route::post('/ban/{id}','AdminUserController@update');
+/* REPORT */
 
 Route::get('/report/{type}/{id}','ReportController@index');
 
 Route::post('/reported/{type}/{id}','ReportController@store');
 
-Route::get('/admin/helper/','AdminHelperQuestionController@index')->name('admin.helper');
-
-Route::get('/admin/new/helper/','AdminNewHelperQuestionController@index')->name('admin.newhelper');
-
-Route::post('/removehelperquestion/{id}','AdminHelperQuestionController@destroy');
-
 Route::post('/dissmis/{id}','ReportController@update');
 
-Route::post('/answered/{id}','AdminHelperQuestionController@update');
+/* !REPORT */
+
+/* --------------------------------------------------------------------- */
+
+/* Create */
+
+Route::get('/create','CreateController@index')->name('create.index');
+
+Route::post('/create','CreateController@create')->name('create.create');
+
+/* !Create */
+
+/* --------------------------------------------------------------------- */
+
+/* Profil */
+
+Route::get('/profil','ProfilController@index')->name('profil.index');
+
+Route::get('/profil/{id}','ProfilController@show');
+
+Route::post('/profil/edit','ProfilController@edit')->name('profil.edit');
+
+
+/* !Profil */
+
+/* --------------------------------------------------------------------- */
+
+/* Search */
+
+Route::post('/serach','SearchController@search')->name('search');
+
+/* !Search */
+
+/* --------------------------------------------------------------------- */
+
+/* Post */
+
+Route::get('/posts','PostController@index')->name('posts');
+
+Route::get('/fullpost/{id}','PostController@show');
+
+Route::post('/removepost/{id}/','PostController@destroy');
+
+Route::post('/fullpost/{id}','PostCommentController@store');
+
+Route::post('/removepostcomment/{id}/{postcomid}','PostCommentController@destroy');
+
+/* !Post */
+
+/* --------------------------------------------------------------------- */
+
+/* Question */
+
+Route::get('/fullquestion/{id}','QuestionController@show');
+
+Route::get('/question','QuestionController@index')->name('question');
+
+Route::post('/removequestion/{id}/','QuestionController@destroy');
+
+/* !Question */
+
+/* --------------------------------------------------------------------- */
+
+/* Helper */
+
+Route::post('/removehelperanswer/{id}/{ansid}','HelperAnswerController@destroy');
+
+Route::post('/helper/full/{id}','HelperAnswerController@store');
+
+/* !Helper */
+
+/* --------------------------------------------------------------------- */
+
+/* Answer */
+
+Route::post('/removeanswer/{id}/{ansid}','AnswerController@destroy');
+
+Route::post('/fullquestion/{id}','AnswerController@store');
+
+/* !Answer */
+
+/* --------------------------------------------------------------------- */
+
+/* User */
+
+Route::post('/removeuser/{id}', 'UserController@destroy');
+
+Route::post('/aprove/newuser/{id}','UserController@update');
+
+/* !User */
+
+/* --------------------------------------------------------------------- */
+
+/* Category */
+
+Route::get('/category/','CategoryController@index');
+
+/* !Category */
+
+
+/* --------------------------------------------------------------------- */
+
+/* Home */
+
+Route::get('/home','HomeController@index')->name('home.index');
+
+/* !Home */
