@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Category;
 use App\Post;
 use App\Comment;
 use Illuminate\Support\Facades\Auth;
@@ -85,12 +87,19 @@ class PostController extends Controller
 
         public function destroy($id){
 
-             Post::where('id', $id)->delete();
+/* FIX THE COUNT AFTER DELETE */
 
-             PostComment::where('post_id',$id)->delete();
+            $category_id = Post::find($id);
 
-             Report::where([['report_id',$id],['type','post']])->delete();
+            PostComment::where('post_id',$id)->delete();
 
+            Report::where([['report_id',$id],['type','post']])->delete();
+
+            $post_count = Category::where('id',$category_id->category_id)->get();
+
+            Post::find($id)->delete();
+
+            Category::where('id',$category_id->category_id)->update(['post_count' => DB::raw(count($post_count)) ]);
 
             return redirect()->back()->with('success', 'Successfull Deleted');
 

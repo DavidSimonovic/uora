@@ -162,11 +162,25 @@
 
     <!-- HELPER QUESTIONS -->
 <div class="row justify-content-center">
-    <div class="col-md-12 col-12">
+    <div class="col-md-6 col-12">
 
         <div  class="card text-center">
 
-        <div class="card-header"><a href="{{ route('admin.helper')}}"><h4>Helper Questions</h4></a></div>
+        <div class="card-header"><a href="{{ route('admin.newhelper')}}"><h4>New Helper Questions</h4></a></div>
+
+            <div class="card-body">
+
+                <h4>{{ $allNewHelperQuestions }}</h4>
+            </div>
+
+        </div>
+     </div>
+
+     <div class="col-md-6 col-12">
+
+        <div  class="card text-center">
+
+        <div class="card-header"><a href="{{ route('admin.helper')}}"><h4>All Helper Questions</h4></a></div>
 
             <div class="card-body">
 

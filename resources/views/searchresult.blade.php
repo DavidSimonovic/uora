@@ -112,7 +112,7 @@
 
         <div class="col-md-12 col-12">
             <div class="card text-center">
-            <div class="card-header"><h3>No post found</h3></div>
+            <div class="card-header"><h3>Nothing found for</h3></div>
 
                 <div class="card-body">
 

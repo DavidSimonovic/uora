@@ -69,7 +69,7 @@ class CreateController extends Controller
 
             $post_count = count(Post::where('category_id',$request['createCategory'])->get());
 
-            Category::where('id',$request['createCategory'])->update(['post_count' => DB::raw($post_count + 1 )]);
+            Category::where('id',$request['createCategory'])->update(['post_count' => DB::raw($post_count)]);
 
             return redirect()->back()->with('success','Post submited.');
     }
@@ -98,6 +98,11 @@ class CreateController extends Controller
 
 
         $question->save();
+
+        $question_count = count(Question::where('category_id',$request['createCategory'])->get());
+
+        Category::where('id',$request['createCategory'])->update(['question_count' => DB::raw($question_count)]);
+
 
         return redirect()->back()->with('success','Question submited.');
         }
@@ -146,6 +151,10 @@ class CreateController extends Controller
 
         $news->save();
 
+        $news_count = count(News::where('category_id',$request['createCategory'])->get());
+
+        Category::where('id',$request['createCategory'])->update(['news_count' => DB::raw($news_count)]);
+
             return redirect()->back()->with('success','News submited.');
 
         }else{
@@ -156,25 +165,7 @@ class CreateController extends Controller
 
     }
 
-    public function edit(Request $request,$id){
 
-        $pdata = array(
-
-            'title'=> ucfirst($request['title']),
-            'type'=>ucfirst($request['type']),
-            'text'=>$request['text'],
-
-        );
-
-        Post::where('id',$id)->update($pdata);
-
-
-        return redirect()->back()->with('success','Profil updated');
-
-
-
-
-    }
 
 
 

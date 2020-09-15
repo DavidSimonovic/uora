@@ -168,6 +168,10 @@ Route::post('/reported/{type}/{id}','ReportController@store');
 
 Route::get('/admin/helper/','AdminHelperQuestionController@index')->name('admin.helper');
 
+Route::get('/admin/new/helper/','AdminNewHelperQuestionController@index')->name('admin.newhelper');
+
 Route::post('/removehelperquestion/{id}','AdminHelperQuestionController@destroy');
 
 Route::post('/dissmis/{id}','ReportController@update');
+
+Route::post('/answered/{id}','AdminHelperQuestionController@update');

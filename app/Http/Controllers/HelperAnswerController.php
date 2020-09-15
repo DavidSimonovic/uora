@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper;
 use App\HelperAnswers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -37,4 +38,5 @@ class HelperAnswerController extends Controller
 
         return redirect()->back()->with('success','Answer Deleted.');
     }
+
 }

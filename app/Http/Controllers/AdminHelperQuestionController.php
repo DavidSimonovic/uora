@@ -17,6 +17,7 @@ class AdminHelperQuestionController extends Controller
 
     $allHelperQuestions = Helper::all();
 
+
     return view('admin.helper',compact('allHelperQuestions'));
 
 }
@@ -37,6 +38,11 @@ public function destroy($id){
 
     return redirect()->back()->with('delete', 'Question Deleted');
 
+}
+public function update($id){
+
+    Helper::where('id',$id)->update(['state'=> 'answered']);
+    return redirect()->back()->with('success','Question Answered');
 }
 
 }

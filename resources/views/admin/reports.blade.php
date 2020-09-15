@@ -29,6 +29,12 @@
                 <div class="card-header text-center">
                 <a href="/full{{$report->type}}/{{$report->report_id}}"><h3>{{ $report->title }}</h3></a>
                 </div>
+                <div class="card-body">
+
+                    {{ $report->reason }}
+                    {{ $report->description }}
+
+                </div>
                 <div class="card-footer">
 
                     <div class="float-right">
