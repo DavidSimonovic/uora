@@ -169,3 +169,5 @@ Route::post('/reported/{type}/{id}','ReportController@store');
 Route::get('/admin/helper/','AdminHelperQuestionController@index')->name('admin.helper');
 
 Route::post('/removehelperquestion/{id}','AdminHelperQuestionController@destroy');
+
+Route::post('/dissmis/{id}','ReportController@update');

@@ -1,15 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    .card{
-        margin-bottom: 2vh;
-    }
 
-    a {
-        text-decoration: none !important;
-    }
-</style>
 <div class="container">
     <div class="row justify-content-center">
 
@@ -50,7 +42,11 @@
 
                     </div>
                     <div class="float-left">
+                        <form method="POST" action="/dissmis/{{ $report->report_id }}">
 
+                            @csrf
+                            <button type="submit" class="btn btn-success float-right">Dissmis</button>
+                        </form>
                 </div>
                 </div>
 

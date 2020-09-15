@@ -17,6 +17,7 @@ class QuestionController extends Controller
     {
         $this->middleware('auth');
     }
+
     public function index(){
 
         $questions = Question::all();
@@ -96,4 +97,8 @@ class QuestionController extends Controller
         return redirect('/home')->with('delete', 'Successfull Deleted');
 
     }
+    public function edit($id){
+
+    }
+
 }

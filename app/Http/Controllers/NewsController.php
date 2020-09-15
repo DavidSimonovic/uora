@@ -85,7 +85,11 @@ class NewsController extends Controller
 
         $news->delete();
 
-        return redirect('/news');
+        return redirect()->back()->with('success','News Deleted');
 
     }
+    public function edit($id){
+
+    }
+
 }

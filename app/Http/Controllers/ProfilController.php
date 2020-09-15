@@ -15,6 +15,12 @@ use Illuminate\Http\Request;
 
 class ProfilController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(){
 
     $id = Auth::user()->id;
@@ -37,10 +43,20 @@ class ProfilController extends Controller
 
     public function show($id){
 
+
+
     $user_info = User::find($id);
 
+    $all_posts = Post::where('author_id',Auth::user()->id)->get();
+    $all_question = Question::where('author_id',Auth::user()->id)->get();
 
-    return view('profil',['user_info' => $user_info ]);
+
+    return view('profil',[
+    'user_info' => $user_info ,
+    'all_posts'=>$all_posts ,
+    'all_question'=>$all_question,
+
+    ]);
 
     }
 

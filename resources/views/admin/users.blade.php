@@ -1,17 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    .card{
-        margin-bottom: 2vh;
-    }
-    #important{
-        border: 2px solid red;
-    }
-    a {
-        text-decoration: none !important;
-    }
-</style>
 <div class="container">
 
     <div class="row justify-content-center">
@@ -23,9 +12,9 @@
         </div>
         @endif
 
-        @if(session()->has('delete'))
+        @if(session()->has('unban'))
         <div class="alert alert-success">
-            {{ session()->get('delete') }}
+            {{ session()->get('undan') }}
         </div>
         @endif
 
@@ -54,13 +43,23 @@
                     </div>
                     <div class="float-left">
 
-
+                        @if($user->state == 'aproved')
                         <form method="POST" action="/ban/{{ $user->id }}">
 
                                 @csrf
                                 <button type="submit" class="btn btn-warning float-right">Ban</button>
-                            </form>
+                        </form>
+                        @endif
 
+                        @if($user->state == 'banned')
+
+                        <form method="POST" action="/ban/{{ $user->id }}">
+
+                                @csrf
+                                <button type="submit" class="btn btn-success float-right">Unban</button>
+                        </form>
+
+                        @endif
                 </div>
                 </div>
 

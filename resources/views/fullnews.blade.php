@@ -1,18 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-
-<style>
-    .card{
-        margin-bottom: 2vh;
-    }
-</style>
-
 <div class="container">
     <div class="row justify-content-center">
         @foreach ($news as $new)
         <div class="col-md-12 col-12">
-            <div id='post' class="card text-center">
+            <div @if($new->importance == 'important')
+
+                    id='important'
+
+                    @endif
+                    @if($new->importance == 'important')
+
+
+                    id='normal'
+
+                    @endif
+
+                class="card text-center">
                 <div class="card-header"><div class="float-left">
                     <h3>{{ $new->title }}</h3>
                 </div>
@@ -60,7 +65,7 @@
                         <label for="createcomment"><h2 >comment</h2></label>
                     </div>
               <div class="card-body">
-                 <textarea class="form-control" id="createcomment" name="createcomment" rows="3"></textarea>
+                 <textarea class="form-control" id="createcomment" name="createcomment" rows="1"></textarea>
                     </div>
                     <div class="card-footer">
                         <!-- Submit button  -->

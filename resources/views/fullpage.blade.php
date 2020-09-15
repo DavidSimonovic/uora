@@ -1,21 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-
-<style>
-    .card{
-        margin-bottom: 2vh;
-    }
-    a {
-        text-decoration: none !important;
-    }
-</style>
-
 <div class="container">
     <div class="row justify-content-center">
         @foreach ($posts as $post)
         <div class="col-md-12 col-12">
-            <div id='post' class="card text-center">
+            <div id='posts' class="card text-center">
             <div class="card-header"><div class="float-left">
                 <h3>{{ $post->title }}</h3>
             </div>
@@ -44,7 +34,7 @@
         </div>
         <div class="float-right">
 
-            <a href="/report/{{'post'}}/{{$post->id}}">report</a>
+            <a id='report' href="/report/{{'post'}}/{{$post->id}}">report</a>
             </div>
 
     </div>
@@ -74,7 +64,7 @@
               <label for="createComment"><h2>Comment</h2></label>
                     </div>
               <div class="card-body">
-              <textarea class="form-control" id="createComment" name="createComment" rows="3"></textarea>
+              <textarea class="form-control" id="createComment" name="createComment" rows="1"></textarea>
                     </div>
                     <div class="card-footer">
                         <!-- Submit button  -->

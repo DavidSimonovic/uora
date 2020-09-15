@@ -1,14 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    .card{
-        margin-bottom: 2vh;
-    }
-    #important{
-        border: 2px solid red;
-    }
-</style>
 <div class="container">
     <div class="row justify-content-center">
         <!-- Questions -->

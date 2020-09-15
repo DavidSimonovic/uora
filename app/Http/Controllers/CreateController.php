@@ -7,7 +7,6 @@ use App\Post;
 use App\Category;
 use App\Question;
 use App\Helper;
-
 use App\News;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
@@ -19,6 +18,12 @@ use Illuminate\Http\Request;
 
 class CreateController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(){
 
 
@@ -148,6 +153,26 @@ class CreateController extends Controller
             return redirect()->back()->with('error','News Title Exists.');
         }
     }
+
+    }
+
+    public function edit(Request $request,$id){
+
+        $pdata = array(
+
+            'title'=> ucfirst($request['title']),
+            'type'=>ucfirst($request['type']),
+            'text'=>$request['text'],
+
+        );
+
+        Post::where('id',$id)->update($pdata);
+
+
+        return redirect()->back()->with('success','Profil updated');
+
+
+
 
     }
 

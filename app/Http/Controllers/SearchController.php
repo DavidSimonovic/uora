@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function search(Request $request){
 
         $searchItem = $request['search'];
@@ -25,6 +30,7 @@ class SearchController extends Controller
 
 
         $questions = Question::where('title', 'LIKE','%'.$searchItem.'%')->orwhere('author_name', 'LIKE','%'.$searchItem.'%')->get();
+
         $checkQuestions = Question::where('title', 'LIKE','%'.$searchItem.'%')->orwhere('author_name', 'LIKE','%'.$searchItem.'%')->exists();
 
 
@@ -40,6 +46,7 @@ class SearchController extends Controller
 
         return view('searchresult',['noPost'=> $noPost,'searchItem'=>$searchItem]);
         }
+
         else
         {
 

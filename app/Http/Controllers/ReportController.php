@@ -11,6 +11,12 @@ use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index($type,$id){
 
         if($type === 'post'){
@@ -94,6 +100,14 @@ class ReportController extends Controller
             return redirect()->back()->with('error', 'You already reported this');
         }
     }
+
+    public function update($id){
+
+        Report::where('report_id',$id)->delete();
+
+        return redirect()->back()->with('success','Report was dissmised');
+
     }
 
 
+}

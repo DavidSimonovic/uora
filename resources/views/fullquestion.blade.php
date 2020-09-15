@@ -1,18 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-
-<style>
-    .card{
-        margin-bottom: 2vh;
-    }
-</style>
-
 <div class="container">
     <div class="row justify-content-center">
         @foreach ($questions as $question)
         <div class="col-md-12 col-12">
-            <div id='post' class="card text-center">
+            <div id='question' class="card text-center">
                 <div class="card-header"><div class="float-left">
                     <h3>{{ $question->title }}</h3>
                 </div>
@@ -32,13 +25,14 @@
 
                     {{ $question->text }}
                 </div>
+
                 <div class="card-footer">
-                    <p class="float-left">{{ $question->author_name }}</p><p class="float-right">{{ $question->view_count }}</p>
+                <a href="/profil/{{ $question->author_id }}"><p class="float-left">{{ $question->author_name }}</p></a><p class="float-right">{{ $question->view_count }}</p>
                 </div>
             </div>
             <div class="float-right">
 
-                <a href="/report/{{'question'}}/{{$question->id}}">report</a>
+                <a id='report' href="/report/{{'question'}}/{{$question->id}}">report</a>
                 </div>
         </div>
         </div>
@@ -63,7 +57,7 @@
                         <label for="createAnswer"><h2 >Answer</h2></label>
                     </div>
               <div class="card-body">
-                 <textarea class="form-control" id="createAnswer" name="createAnswer" rows="3"></textarea>
+                 <textarea class="form-control" id="createAnswer" name="createAnswer" rows="1"></textarea>
                     </div>
                     <div class="card-footer">
                         <!-- Submit button  -->
@@ -94,8 +88,11 @@
                 <div class="col-md-12 col-12">
                     <div id='post' class="card text-center">
                         <div class="card-header text-center">
+
                             <p class="float-left">{{ $answer->author_name }}</p><p class="float-right">{{ $answer->created_at }}</p>
-                                  </div>
+
+                        </div>
+
                         <div class="card-body">
 
                             {{ $answer->answer }}

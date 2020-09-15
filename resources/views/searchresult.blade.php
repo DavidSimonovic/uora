@@ -1,31 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    .card{
-    margin-bottom: 5vh !important;
-    }
-    #question{
-
-        border: 2px solid skyblue;
-    }
-    #posts{
-        border: 2px solid green;
-
-    }
-    #important{
-                border: 3px solid red;
-            }
-    #news{
-        border: 2px solid orange;
-    }
-    a{
-        text-decoration: none !important;
-    }
-    </style>
-
-
-
 <div class="container">
     <div class="row justify-content-center">
 
@@ -85,11 +60,25 @@
         <!-- News -->
         @foreach ($news as $new)
 
-        @if( $new->importance == 'important')
+
 
         <div class="col-md-12 col-8">
 
-            <div id="important" class="card text-center">
+            <div
+
+            @if( $new->importance == 'important')
+
+            id="important"
+
+            @endif
+
+            @if( $new->importance == 'normal')
+
+            id="news"
+
+            @endif
+
+            class="card text-center">
 
                 <div class="card-header"><a href="/fullnews/{{$new->id}}"><h3>{{ $new->title }}</h3></a></div>
 
@@ -106,29 +95,10 @@
 
         </div>
 
-        @endif
+
 
     </div>
 
-
-
-        <div  class="row justify-content-center">
-
-            @if( $new->importance == 'normal')
-        <div class="col-md-12 col-8">
-            <div id="news" class="card text-center">
-            <div class="card-header"><a href=""><h3>{{ $new->title }}</h3></a></div>
-
-                <div class="card-body">
-
-                    {{ $new->text }}
-                </div>
-                <div class="card-footer">
-                    <p class="float-left">{{ $new->author_name }}</p><p class="float-right">{{ $new->view_count }}</p>
-                </div>
-            </div>
-        </div>
-        @endif
         @endforeach
         </div>
         @endisset

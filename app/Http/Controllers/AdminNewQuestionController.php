@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class AdminNewQuestionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(){
 
         $newquestions = Question::where('state','new')->get();

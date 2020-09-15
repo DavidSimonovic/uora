@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class AdminNewPostController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(){
 
         $newposts = Post::where('state','new')->get();

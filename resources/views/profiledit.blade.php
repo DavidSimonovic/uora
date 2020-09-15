@@ -1,11 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    a {
-        text-decoration: none !important;
-    }
-</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-sm-8">
@@ -170,7 +165,7 @@
 
 
                             <th scope="row"></th>
-                            <td>{{ $hquestion->title }}</td>
+                          <td><a href="/helper/full/{{ $hquestion->id }}">{{$hquestion->title }}</a></td>
                             <td>{{ $hquestion->type }}</td>
                             <td>{{ $hquestion->view_count }}</td>
 

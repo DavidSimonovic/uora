@@ -10,6 +10,13 @@ use Illuminate\Http\Request;
 
 class NewsCommentController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function store(Request $request, $id){
 
         $comment = new NewsComment();

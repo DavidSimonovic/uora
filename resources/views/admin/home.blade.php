@@ -1,26 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<!--style-->
-<style>
-    .card{
-        margin-bottom: 1vh;
-    }
-    #report h4{
-        color: red;
-
-    }
-    .card a{
-
-        text-decoration: none !important;
-    }
-    h4{
-        font-size: 2vh;
-    }
-</style>
-<!--!style -->
-
- <!-- NEW QUESTIONS -->
+<!-- NEW QUESTIONS -->
 <div class="container">
 
     <div class="row justify-content-center">

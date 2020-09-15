@@ -95,5 +95,10 @@ class PostController extends Controller
             return redirect()->back()->with('success', 'Successfull Deleted');
 
         }
+        public function edit($id){
+
+        }
+
+
 
 }

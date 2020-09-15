@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Auth;
 class AnswerController extends Controller
 {
 
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function store(Request $request, $id){
 
         $answer = new Answer();
