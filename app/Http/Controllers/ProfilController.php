@@ -21,6 +21,8 @@ class ProfilController extends Controller
         $this->middleware('auth');
     }
 
+
+
     public function index(){
 
     $id = Auth::user()->id;
@@ -41,12 +43,13 @@ class ProfilController extends Controller
     ]);
     }
 
+
+
     public function show($id){
 
 
 
     $user_info = User::find($id);
-
     $all_posts = Post::where('author_id',$id)->get();
     $all_question = Question::where('author_id',$id)->get();
 
@@ -61,6 +64,7 @@ class ProfilController extends Controller
     ]);
 
     }
+
 
     public function edit(Request $request){
 
@@ -78,10 +82,5 @@ class ProfilController extends Controller
         return redirect()->back()->with('success','Profil updated');
     }
 
-    public function destroy(){
 
-    }
-    public function update(){
-
-    }
 }

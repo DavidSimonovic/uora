@@ -43,7 +43,7 @@
 
                 <!-- Submit button  -->
 
-                <button type="submit" class="btn btn-primary">Filter</button>
+                <button type="submit" class="btn btn-primary float-right">Filter</button>
 
                 <!-- !Submit button  -->
 

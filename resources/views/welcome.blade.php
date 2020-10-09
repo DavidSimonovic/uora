@@ -6,7 +6,7 @@
     <div class="container h-100">
       <div class="row h-100 align-items-center">
         <div class="col-12 text-center">
-          <h1 id="welcome" class="font-weight-bold">Udruzenje Obolelih od reumatskog artritisa</h1>
+          <h1 id="welcome" class="font-weight-bold">Uora</h1>
         </div>
       </div>
 

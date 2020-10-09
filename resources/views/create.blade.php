@@ -25,7 +25,7 @@
 
             <div class="form-group">
               <label for="createTitle">Title</label>
-              <input type="title" class="form-control" id="createTitle" name="createTitle" placeholder="Title">
+              <input type="title" class="form-control" id="createTitle" name="createTitle" placeholder="Title" required>
             </div>
 
             <!-- !Title input  -->
@@ -107,7 +107,7 @@
 
             <div class="form-group">
               <label for="createText">Text</label>
-              <textarea class="form-control" id="createText" name="createText" rows="3"></textarea>
+              <textarea class="form-control" id="createText" name="createText" rows="3" required></textarea>
             </div>
 
             <!-- !Blog text input field -->

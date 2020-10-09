@@ -3,11 +3,14 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+
 use Tests\TestCase;
+
 
 class WelcomeTest extends TestCase
 {
     use RefreshDatabase;
+
     /**
      * A basic test example.
      *
@@ -31,5 +34,7 @@ class WelcomeTest extends TestCase
 
 
     }
+
+
 
 }

@@ -59,23 +59,20 @@
 
             <!-- Blog text input field -->
 
-            <div class="form-group ">
-                <div id='post' class="card">
-                    <div class="card-header text-center">
-                        <label for="createcomment"><h2 >comment</h2></label>
-                    </div>
+            <div class="form-group">
+
+            <div id='post' class="card text-center">
+
               <div class="card-body">
-                 <textarea class="form-control" id="createcomment" name="createcomment" rows="1"></textarea>
-                    </div>
-                    <div class="card-footer">
-                        <!-- Submit button  -->
 
-                         <button type="submit" class="btn btn-primary float-right">Submit</button>
+                <label for="createcomment">comment</label>
+                 <textarea class="form-control" id="createcomment" name="createcomment" rows="1" required></textarea>
 
-                        <!-- !Submit button  -->
                     </div>
                 </div>
             </div>
+
+            <button type="submit" class="btn btn-primary float-right">Submit</button>
 
             @endforeach
             <!-- !Blog text input field -->
@@ -86,7 +83,7 @@
                 </form>
             </div>
         </div>
-</div>
+    </div>
 
 
 <div class="container">

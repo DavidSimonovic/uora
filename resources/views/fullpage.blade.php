@@ -57,24 +57,22 @@
             <!-- Blog text input field -->
 
             <div class="form-group ">
-                <div id='post' class="card">
-                    <div class="card-header text-center">
+                <div id='post' class="card text-center">
+                    <div class="card-body">
+                <label for="createComment">Comment</label>
 
-
-              <label for="createComment"><h2>Comment</h2></label>
-                    </div>
-              <div class="card-body">
-              <textarea class="form-control" id="createComment" name="createComment" rows="1"></textarea>
-                    </div>
-                    <div class="card-footer">
-                        <!-- Submit button  -->
-
-                         <button type="submit" class="btn btn-primary float-right">Submit</button>
-
-                        <!-- !Submit button  -->
-                    </div>
-                </div>
+                <textarea class="form-control" id="createComment" name="createComment" rows="1" required></textarea>
             </div>
+             </div>
+
+        </div>
+
+
+     <!-- Submit button  -->
+
+     <button type="submit" class="btn btn-primary float-right">Submit</button>
+
+     <!-- !Submit button  -->
 
             @endforeach
             <!-- !Blog text input field -->

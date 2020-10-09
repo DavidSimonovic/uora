@@ -73,10 +73,11 @@
 
             <div class="form-group ">
                 <div id='post' class="card">
-                    <div class="card-header text-center">
-                        <label for="createAnswer"><h2 >Answer</h2></label>
-                    </div>
+
+
+
               <div class="card-body">
+                <label for="createAnswer">Answer</label>
                  <textarea class="form-control" id="createAnswer" name="createAnswer" rows="3"></textarea>
                     </div>
                     <div class="card-footer">

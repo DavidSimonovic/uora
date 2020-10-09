@@ -46,7 +46,7 @@
 
                 <!-- Submit button  -->
 
-                <button type="submit" class="btn btn-primary">Filter</button>
+                <button type="submit" class="btn btn-primary float-right">Filter</button>
 
                 <!-- !Submit button  -->
 
@@ -67,7 +67,9 @@
                 <div class="card-body">
 
                     {{ $post->text }}
+
                 </div>
+
                 <div class="card-footer">
                     <p class="float-left">{{ $post->author_name }}</p><p class="float-right">{{ $post->view_count }}</p>
                 </div>

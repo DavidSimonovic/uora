@@ -29,6 +29,7 @@ class AnswerController extends Controller
         return redirect('/fullquestion/'.$id);
 
     }
+
     public function destroy($id, $ansid){
 
         $answer = Answer::where('id', $ansid);
