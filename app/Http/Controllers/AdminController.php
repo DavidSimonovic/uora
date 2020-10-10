@@ -27,22 +27,22 @@ class AdminController extends Controller
     if(Auth::user()->user_role == 'helper'){
 
 
-        $newPosts = count(Post::where('state','new')->get());
-        $newQuestions = count(Question::where('state','new')->get());
+        $newPosts = Post::where('state','new')->count();
+        $newQuestions = Question::where('state','new')->count();
 
-        $newUser = count(User::where('state','new')->get());
-        $newNews = count(News::where('state','new')->get());
+        $newUser = User::where('state','new')->count();
+        $newNews = News::where('state','new')->count();
 
-        $allPosts = count(Post::all());
-        $allQuestions = count(Question::all());
+        $allPosts = Post::all()->count();
+        $allQuestions = Question::all()->count();
 
-        $allUser = count(User::all());
-        $allNews = count(News::all());
+        $allUser = User::all()->count();
+        $allNews = News::all()->count();
 
-        $allReports = count(Report::all());
+        $allReports = Report::all()->count();
 
-        $allHelperQuestions = count(Helper::all());
-        $allNewHelperQuestions = count(Helper::where('state','new')->get());
+        $allHelperQuestions = Helper::all()->count();
+        $allNewHelperQuestions = Helper::where('state','new')->count();
 
         return view('admin.home',[
             'newPosts' => $newPosts,
